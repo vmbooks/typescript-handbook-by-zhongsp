@@ -12,7 +12,6 @@
 
 :link: [一大波新的快速开始指南：React，Angular，Nodejs，ASP.NET Core，React Native，Vue，Glimmer，WeChat，Dojo2，Knockout等](./doc/quick-start/README.md)
 
-<img src="./misc/reward.jpg" alt="Reward the Author" width="300px" height="300px" style="vertical-align: bottom;">  如果觉得不错可以微信打赏哟 <3
 
 ## 目录
 
