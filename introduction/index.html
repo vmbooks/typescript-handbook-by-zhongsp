@@ -1,0 +1,1557 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>如何书写声明文件 - TypeScript Handbook - 开源图书(OpenBooks)</title>
+        
+        <meta name="description" content="">
+        <meta name="author" content="Patrick Zhong">
+        
+        <script data-ad-client="ca-pub-9312750344484857" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/style.css">
+
+    
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/images/favicon.ico" type="image/x-icon">
+
+    <link rel="next" href="introduction.html" />
+    <link rel="prev" href="../handbook/utility-types.html" />
+
+    </head>
+    <body>
+        
+<div class="book">  
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+	<a href="/" class="btn pull-left" aria-label="开源图书(OpenBooks)"><i class="fa fa-home"></i></a>
+    
+
+    <!-- Title -->
+    <h1><i class="fa fa-circle-o-notch fa-spin"></i><a href=".." >如何书写声明文件</a></h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-9312750344484857"
+                                     data-ad-slot="2669241897"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="true"></ins>
+                                <script>
+                                     (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                <section class="normal markdown-section">
+                                
+                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; zhongsp all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
+<li><div><a href="#&#x5982;&#x4F55;&#x4E66;&#x5199;&#x58F0;&#x660E;&#x6587;&#x4EF6;">&#x5982;&#x4F55;&#x4E66;&#x5199;&#x58F0;&#x660E;&#x6587;&#x4EF6;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x7AE0;&#x8282;">&#x7AE0;&#x8282;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x7ED3;&#x6784;">&#x7ED3;&#x6784;</a><i></i></div></li>
+<li><div><a href="#&#x4E3E;&#x4F8B;">&#x4E3E;&#x4F8B;</a><i></i></div></li>
+<li><div><a href="#&#x89C4;&#x8303;">&#x89C4;&#x8303;</a><i></i></div></li>
+<li><div><a href="#&#x6DF1;&#x5165;">&#x6DF1;&#x5165;</a><i></i></div></li>
+<li><div><a href="#&#x6A21;&#x7248;">&#x6A21;&#x7248;</a><i></i></div></li>
+<li><div><a href="#&#x53D1;&#x5E03;&#x5230;npm">&#x53D1;&#x5E03;&#x5230;npm</a><i></i></div></li>
+<li><div><a href="#&#x67E5;&#x627E;&#x4E0E;&#x5B89;&#x88C5;&#x58F0;&#x660E;&#x6587;&#x4EF6;">&#x67E5;&#x627E;&#x4E0E;&#x5B89;&#x88C5;&#x58F0;&#x660E;&#x6587;&#x4EF6;</a><i></i></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+
+<h1 id="&#x5982;&#x4F55;&#x4E66;&#x5199;&#x58F0;&#x660E;&#x6587;&#x4EF6;">&#x5982;&#x4F55;&#x4E66;&#x5199;&#x58F0;&#x660E;&#x6587;&#x4EF6;</h1>
+<p>&#x8FD9;&#x7BC7;&#x6307;&#x5357;&#x7684;&#x76EE;&#x7684;&#x662F;&#x6559;&#x4F60;&#x5982;&#x4F55;&#x4E66;&#x5199;&#x9AD8;&#x8D28;&#x91CF;&#x7684;TypeScript&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x7BC7;&#x6307;&#x5357;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x4F60;&#x5BF9;TypeScript&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x4E86;&#x89E3;&#x3002; &#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x8BF7;&#x5148;&#x9605;&#x8BFB;<a href="../handbook/basic-types.html">TypeScript&#x624B;&#x518C;</a> &#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x77E5;&#x8BC6;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x7C7B;&#x578B;&#x548C;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x90E8;&#x5206;&#x3002;</p>
+<h2 id="&#x7AE0;&#x8282;">&#x7AE0;&#x8282;</h2>
+<p>&#x8FD9;&#x7BC7;&#x6307;&#x5357;&#x88AB;&#x5206;&#x6210;&#x4E86;&#x4EE5;&#x4E0B;&#x7AE0;&#x8282;&#x3002;</p>
+<h3 id="&#x7ED3;&#x6784;">&#x7ED3;&#x6784;</h3>
+<p><a href="library-structures.html">&#x7ED3;&#x6784;</a>&#x4E00;&#x8282;&#x5C06;&#x5E2E;&#x52A9;&#x4F60;&#x4E86;&#x89E3;&#x5E38;&#x89C1;&#x5E93;&#x7684;&#x683C;&#x5F0F;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x4E3A;&#x6BCF;&#x79CD;&#x683C;&#x5F0F;&#x4E66;&#x5199;&#x6B63;&#x786E;&#x7684;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x3002; &#x5982;&#x679C;&#x4F60;&#x5728;&#x7F16;&#x8F91;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x53EF;&#x80FD;&#x4E0D;&#x9700;&#x8981;&#x9605;&#x8BFB;&#x6B64;&#x7AE0;&#x8282;&#x3002; &#x5982;&#x679C;&#x4F60;&#x5728;&#x4E66;&#x5199;&#x65B0;&#x7684;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5FC5;&#x987B;&#x9605;&#x8BFB;&#x6B64;&#x7AE0;&#x8282;&#x4EE5;&#x7406;&#x89E3;&#x5E93;&#x7684;&#x4E0D;&#x540C;&#x683C;&#x5F0F;&#x662F;&#x5982;&#x4F55;&#x5F71;&#x54CD;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x7684;&#x4E66;&#x5199;&#x7684;&#x3002;</p>
+<h3 id="&#x4E3E;&#x4F8B;">&#x4E3E;&#x4F8B;</h3>
+<p>&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x793A;&#x4F8B;&#x6765;&#x4E86;&#x89E3;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E3A;&#x8FD9;&#x6837;&#x7684;&#x5E93;&#x4E66;&#x5199;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x3002; <a href="by-example.html">&#x4E3E;&#x4F8B;</a>&#x4E00;&#x8282;&#x5C55;&#x793A;&#x4E86;&#x5F88;&#x591A;&#x5E38;&#x89C1;&#x7684;API&#x6A21;&#x5F0F;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x4E3A;&#x5B83;&#x4EEC;&#x4E66;&#x5199;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x3002; &#x8FD9;&#x7BC7;&#x6307;&#x5357;&#x662F;&#x9488;&#x5BF9;TypeScript&#x521D;&#x5B66;&#x8005;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x53EF;&#x80FD;&#x8FD8;&#x4E0D;&#x4E86;&#x89E3;TypeScript&#x91CC;&#x7684;&#x6240;&#x6709;&#x8BED;&#x8A00;&#x7ED3;&#x6784;&#x3002;</p>
+<h3 id="&#x89C4;&#x8303;">&#x89C4;&#x8303;</h3>
+<p>&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x91CC;&#x6709;&#x5F88;&#x591A;&#x5E38;&#x89C1;&#x7684;&#x9519;&#x8BEF;&#x662F;&#x5F88;&#x5BB9;&#x6613;&#x907F;&#x514D;&#x7684;&#x3002; <a href="do-s-and-don-ts.html">&#x89C4;&#x8303;</a>&#x4E00;&#x8282;&#x6307;&#x51FA;&#x4E86;&#x5E38;&#x89C1;&#x7684;&#x9519;&#x8BEF;&#xFF0C; &#x63CF;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x53D1;&#x73B0;&#x5B83;&#x4EEC;&#xFF0C; &#x4E0E;&#x600E;&#x6837;&#x53BB;&#x4FEE;&#x590D;&#x3002; &#x6BCF;&#x4E2A;&#x4EBA;&#x90FD;&#x8981;&#x9605;&#x8BFB;&#x8FD9;&#x4E2A;&#x7AE0;&#x8282;&#x4EE5;&#x4E86;&#x89E3;&#x5982;&#x4F55;&#x907F;&#x514D;&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x3002;</p>
+<h3 id="&#x6DF1;&#x5165;">&#x6DF1;&#x5165;</h3>
+<p>&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x5BF9;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x5E95;&#x5C42;&#x5DE5;&#x4F5C;&#x673A;&#x5236;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x8001;&#x624B;&#x4EEC;&#xFF0C; <a href="deep-dive.html">&#x6DF1;&#x5165;</a>&#x4E00;&#x8282;&#x89E3;&#x91CA;&#x4E86;&#x5F88;&#x591A;&#x9AD8;&#x7EA7;&#x4E66;&#x5199;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x7684;&#x9AD8;&#x7EA7;&#x6982;&#x5FF5;&#xFF0C; &#x4EE5;&#x53CA;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5229;&#x7528;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x6765;&#x521B;&#x5EFA;&#x6574;&#x6D01;&#x548C;&#x76F4;&#x89C2;&#x7684;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x3002;</p>
+<h3 id="&#x6A21;&#x7248;">&#x6A21;&#x7248;</h3>
+<p>&#x5728;<a href="../doc/handbook/declaration%20files/Templates.md">&#x6A21;&#x7248;</a>&#x4E00;&#x8282;&#x91CC;&#xFF0C;&#x4F60;&#x80FD;&#x627E;&#x5230;&#x4E00;&#x4E9B;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x4F60;&#x5FEB;&#x901F;&#x5F00;&#x59CB; &#x5F53;&#x4F60;&#x5728;&#x4E66;&#x5199;&#x4E00;&#x4E2A;&#x65B0;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x3002; &#x53C2;&#x8003;<a href="library-structures.html">&#x7ED3;&#x6784;</a>&#x8FD9;&#x7BC7;&#x6587;&#x6863;&#x6765;&#x627E;&#x5230;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x6A21;&#x7248;&#x6587;&#x4EF6;&#x3002;</p>
+<h3 id="&#x53D1;&#x5E03;&#x5230;npm">&#x53D1;&#x5E03;&#x5230;npm</h3>
+<p><a href="publishing.html">&#x53D1;&#x5E03;</a>&#x4E00;&#x8282;&#x8BB2;&#x89E3;&#x4E86;&#x5982;&#x4F55;&#x53D1;&#x5E03;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x4E3A;npm&#x5305;&#xFF0C;&#x53CA;&#x5982;&#x4F55;&#x7BA1;&#x7406;&#x5305;&#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
+<h3 id="&#x67E5;&#x627E;&#x4E0E;&#x5B89;&#x88C5;&#x58F0;&#x660E;&#x6587;&#x4EF6;">&#x67E5;&#x627E;&#x4E0E;&#x5B89;&#x88C5;&#x58F0;&#x660E;&#x6587;&#x4EF6;</h3>
+<p>&#x5BF9;&#x4E8E;JavaScript&#x5E93;&#x7684;&#x4F7F;&#x7528;&#x8005;&#x6765;&#x8BB2;&#xFF0C;<a href="consumption.html">&#x4F7F;&#x7528;</a>&#x4E00;&#x8282;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x6B65;&#x9AA4;&#x6765;&#x5B9A;&#x4F4D;&#x4E0E;&#x5B89;&#x88C5;&#x76F8;&#x5E94;&#x7684;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x3002;</p>
+
+                                
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-9312750344484857"
+                                     data-ad-slot="2669241897"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="true"></ins>
+                                <script>
+                                     (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../handbook/utility-types.html" class="navigation navigation-prev " aria-label="上一页: 实用工具类型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="introduction.html" class="navigation navigation-next " aria-label="下一页: 介绍">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            <a href="../">
+            
+                    
+                    Introduction
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            <a href="../">
+            
+                    
+                    Introduction
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tutorials/">
+            <a href="../tutorials/">
+            
+                    
+                    快速上手
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../tutorials/typescript-in-5-minutes.html">
+            <a href="../tutorials/typescript-in-5-minutes.html">
+            
+                    
+                    5分钟了解TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../tutorials/asp.net-core.html">
+            <a href="../tutorials/asp.net-core.html">
+            
+                    
+                    ASP.NET Core
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../tutorials/asp.net-4.html">
+            <a href="../tutorials/asp.net-4.html">
+            
+                    
+                    ASP.NET 4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../tutorials/gulp.html">
+            <a href="../tutorials/gulp.html">
+            
+                    
+                    Gulp
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../tutorials/knockout.html">
+            <a href="../tutorials/knockout.html">
+            
+                    
+                    Knockout.js
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../tutorials/react-and-webpack.html">
+            <a href="../tutorials/react-and-webpack.html">
+            
+                    
+                    React与webpack
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../tutorials/react.html">
+            <a href="../tutorials/react.html">
+            
+                    
+                    React
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../tutorials/angular-2.html">
+            <a href="../tutorials/angular-2.html">
+            
+                    
+                    Angular 2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../tutorials/migrating-from-javascript.html">
+            <a href="../tutorials/migrating-from-javascript.html">
+            
+                    
+                    从JavaScript迁移到TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../handbook/">
+            <a href="../handbook/">
+            
+                    
+                    手册
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../handbook/basic-types.html">
+            <a href="../handbook/basic-types.html">
+            
+                    
+                    基础类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../handbook/variable-declarations.html">
+            <a href="../handbook/variable-declarations.html">
+            
+                    
+                    变量声明
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../handbook/interfaces.html">
+            <a href="../handbook/interfaces.html">
+            
+                    
+                    接口
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../handbook/classes.html">
+            <a href="../handbook/classes.html">
+            
+                    
+                    类
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../handbook/functions.html">
+            <a href="../handbook/functions.html">
+            
+                    
+                    函数
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../handbook/generics.html">
+            <a href="../handbook/generics.html">
+            
+                    
+                    泛型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../handbook/enums.html">
+            <a href="../handbook/enums.html">
+            
+                    
+                    枚举
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../handbook/type-inference.html">
+            <a href="../handbook/type-inference.html">
+            
+                    
+                    类型推论
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../handbook/type-compatibility.html">
+            <a href="../handbook/type-compatibility.html">
+            
+                    
+                    类型兼容性
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../handbook/advanced-types.html">
+            <a href="../handbook/advanced-types.html">
+            
+                    
+                    高级类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../handbook/symbols.html">
+            <a href="../handbook/symbols.html">
+            
+                    
+                    Symbols
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../handbook/iterators-and-generators.html">
+            <a href="../handbook/iterators-and-generators.html">
+            
+                    
+                    Iterators 和 Generators
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../handbook/modules.html">
+            <a href="../handbook/modules.html">
+            
+                    
+                    模块
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../handbook/namespaces.html">
+            <a href="../handbook/namespaces.html">
+            
+                    
+                    命名空间
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../handbook/namespaces-and-modules.html">
+            <a href="../handbook/namespaces-and-modules.html">
+            
+                    
+                    命名空间和模块
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../handbook/module-resolution.html">
+            <a href="../handbook/module-resolution.html">
+            
+                    
+                    模块解析
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../handbook/declaration-merging.html">
+            <a href="../handbook/declaration-merging.html">
+            
+                    
+                    声明合并
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../handbook/jsx.html">
+            <a href="../handbook/jsx.html">
+            
+                    
+                    JSX
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../handbook/decorators.html">
+            <a href="../handbook/decorators.html">
+            
+                    
+                    Decorators
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../handbook/mixins.html">
+            <a href="../handbook/mixins.html">
+            
+                    
+                    混入
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../handbook/triple-slash-directives.html">
+            <a href="../handbook/triple-slash-directives.html">
+            
+                    
+                    三斜线指令
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../handbook/type-checking-javascript-files.html">
+            <a href="../handbook/type-checking-javascript-files.html">
+            
+                    
+                    JavaScript文件里的类型检查
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23" data-path="../handbook/utility-types.html">
+            <a href="../handbook/utility-types.html">
+            
+                    
+                    实用工具类型
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="./">
+            <a href="./">
+            
+                    
+                    如何书写声明文件
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="introduction.html">
+            <a href="introduction.html">
+            
+                    
+                    介绍
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="library-structures.html">
+            <a href="library-structures.html">
+            
+                    
+                    库结构
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="by-example.html">
+            <a href="by-example.html">
+            
+                    
+                    举例
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="do-s-and-don-ts.html">
+            <a href="do-s-and-don-ts.html">
+            
+                    
+                    最佳实践
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="deep-dive.html">
+            <a href="deep-dive.html">
+            
+                    
+                    深入
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="templates.html">
+            <a href="templates.html">
+            
+                    
+                    模板
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="publishing.html">
+            <a href="publishing.html">
+            
+                    
+                    发布
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="consumption.html">
+            <a href="consumption.html">
+            
+                    
+                    使用
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../tsconfig.json/">
+            <a href="../tsconfig.json/">
+            
+                    
+                    工程配置
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../tsconfig.json/tsconfig.json.html">
+            <a href="../tsconfig.json/tsconfig.json.html">
+            
+                    
+                    tsconfig.json
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../tsconfig.json/project-references.html">
+            <a href="../tsconfig.json/project-references.html">
+            
+                    
+                    工程引用
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../tsconfig.json/typings-for-npm-packages.html">
+            <a href="../tsconfig.json/typings-for-npm-packages.html">
+            
+                    
+                    NPM包的类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../tsconfig.json/compiler-options.html">
+            <a href="../tsconfig.json/compiler-options.html">
+            
+                    
+                    编译选项
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../tsconfig.json/configuring-watch.html">
+            <a href="../tsconfig.json/configuring-watch.html">
+            
+                    
+                    配置 Watch
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../tsconfig.json/compiler-options-in-msbuild.html">
+            <a href="../tsconfig.json/compiler-options-in-msbuild.html">
+            
+                    
+                    在MSBuild里使用编译选项
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../tsconfig.json/integrating-with-build-tools.html">
+            <a href="../tsconfig.json/integrating-with-build-tools.html">
+            
+                    
+                    与其它构建工具整合
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../tsconfig.json/nightly-builds.html">
+            <a href="../tsconfig.json/nightly-builds.html">
+            
+                    
+                    使用TypeScript的每日构建版本
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../wiki/">
+            <a href="../wiki/">
+            
+                    
+                    Wiki
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../wiki/this-in-typescript.html">
+            <a href="../wiki/this-in-typescript.html">
+            
+                    
+                    TypeScript里的this
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../wiki/coding_guidelines.html">
+            <a href="../wiki/coding_guidelines.html">
+            
+                    
+                    编码规范
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../wiki/common-errors.html">
+            <a href="../wiki/common-errors.html">
+            
+                    
+                    常见编译错误
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../wiki/typescript-editor-support.html">
+            <a href="../wiki/typescript-editor-support.html">
+            
+                    
+                    支持TypeScript的编辑器
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../wiki/using-typescript-with-asp.net-5.html">
+            <a href="../wiki/using-typescript-with-asp.net-5.html">
+            
+                    
+                    结合ASP.NET v5使用TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../wiki/architectural-overview.html">
+            <a href="../wiki/architectural-overview.html">
+            
+                    
+                    架构概述
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../wiki/roadmap.html">
+            <a href="../wiki/roadmap.html">
+            
+                    
+                    发展路线图
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../release-notes/">
+            <a href="../release-notes/">
+            
+                    
+                    新增功能
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../release-notes/typescript-4.0.html">
+            <a href="../release-notes/typescript-4.0.html">
+            
+                    
+                    TypeScript 4.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../release-notes/typescript-3.9.html">
+            <a href="../release-notes/typescript-3.9.html">
+            
+                    
+                    TypeScript 3.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../release-notes/typescript-3.8.html">
+            <a href="../release-notes/typescript-3.8.html">
+            
+                    
+                    TypeScript 3.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../release-notes/typescript-3.7.html">
+            <a href="../release-notes/typescript-3.7.html">
+            
+                    
+                    TypeScript 3.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../release-notes/typescript-3.6.html">
+            <a href="../release-notes/typescript-3.6.html">
+            
+                    
+                    TypeScript 3.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../release-notes/typescript-3.5.html">
+            <a href="../release-notes/typescript-3.5.html">
+            
+                    
+                    TypeScript 3.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../release-notes/typescript-3.4.html">
+            <a href="../release-notes/typescript-3.4.html">
+            
+                    
+                    TypeScript 3.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../release-notes/typescript-3.3.html">
+            <a href="../release-notes/typescript-3.3.html">
+            
+                    
+                    TypeScript 3.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../release-notes/typescript-3.2.html">
+            <a href="../release-notes/typescript-3.2.html">
+            
+                    
+                    TypeScript 3.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../release-notes/typescript-3.1.html">
+            <a href="../release-notes/typescript-3.1.html">
+            
+                    
+                    TypeScript 3.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../release-notes/typescript-3.0.html">
+            <a href="../release-notes/typescript-3.0.html">
+            
+                    
+                    TypeScript 3.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="../release-notes/typescript-2.9.html">
+            <a href="../release-notes/typescript-2.9.html">
+            
+                    
+                    TypeScript 2.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.13" data-path="../release-notes/typescript-2.8.html">
+            <a href="../release-notes/typescript-2.8.html">
+            
+                    
+                    TypeScript 2.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="../release-notes/typescript-2.7.html">
+            <a href="../release-notes/typescript-2.7.html">
+            
+                    
+                    TypeScript 2.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.15" data-path="../release-notes/typescript-2.6.html">
+            <a href="../release-notes/typescript-2.6.html">
+            
+                    
+                    TypeScript 2.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.16" data-path="../release-notes/typescript-2.5.html">
+            <a href="../release-notes/typescript-2.5.html">
+            
+                    
+                    TypeScript 2.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.17" data-path="../release-notes/typescript-2.4.html">
+            <a href="../release-notes/typescript-2.4.html">
+            
+                    
+                    TypeScript 2.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.18" data-path="../release-notes/typescript-2.3.html">
+            <a href="../release-notes/typescript-2.3.html">
+            
+                    
+                    TypeScript 2.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.19" data-path="../release-notes/typescript-2.2.html">
+            <a href="../release-notes/typescript-2.2.html">
+            
+                    
+                    TypeScript 2.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.20" data-path="../release-notes/typescript-2.1.html">
+            <a href="../release-notes/typescript-2.1.html">
+            
+                    
+                    TypeScript 2.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.21" data-path="../release-notes/typescript-2.0.html">
+            <a href="../release-notes/typescript-2.0.html">
+            
+                    
+                    TypeScript 2.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.22" data-path="../release-notes/typescript-1.8.html">
+            <a href="../release-notes/typescript-1.8.html">
+            
+                    
+                    TypeScript 1.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.23" data-path="../release-notes/typescript-1.7.html">
+            <a href="../release-notes/typescript-1.7.html">
+            
+                    
+                    TypeScript 1.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.24" data-path="../release-notes/typescript-1.6.html">
+            <a href="../release-notes/typescript-1.6.html">
+            
+                    
+                    TypeScript 1.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.25" data-path="../release-notes/typescript-1.5.html">
+            <a href="../release-notes/typescript-1.5.html">
+            
+                    
+                    TypeScript 1.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.26" data-path="../release-notes/typescript-1.4.html">
+            <a href="../release-notes/typescript-1.4.html">
+            
+                    
+                    TypeScript 1.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.27" data-path="../release-notes/typescript-1.3.html">
+            <a href="../release-notes/typescript-1.3.html">
+            
+                    
+                    TypeScript 1.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.28" data-path="../release-notes/typescript-1.1.html">
+            <a href="../release-notes/typescript-1.1.html">
+            
+                    
+                    TypeScript 1.1
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../breaking-changes/">
+            <a href="../breaking-changes/">
+            
+                    
+                    Breaking Changes
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../breaking-changes/typescript-3.6.html">
+            <a href="../breaking-changes/typescript-3.6.html">
+            
+                    
+                    TypeScript 3.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../breaking-changes/typescript-3.5.html">
+            <a href="../breaking-changes/typescript-3.5.html">
+            
+                    
+                    TypeScript 3.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../breaking-changes/typescript-3.4.html">
+            <a href="../breaking-changes/typescript-3.4.html">
+            
+                    
+                    TypeScript 3.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../breaking-changes/typescript-3.2.html">
+            <a href="../breaking-changes/typescript-3.2.html">
+            
+                    
+                    TypeScript 3.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../breaking-changes/typescript-3.1.html">
+            <a href="../breaking-changes/typescript-3.1.html">
+            
+                    
+                    TypeScript 3.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../breaking-changes/typescript-3.0.html">
+            <a href="../breaking-changes/typescript-3.0.html">
+            
+                    
+                    TypeScript 3.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../breaking-changes/typescript-2.9.html">
+            <a href="../breaking-changes/typescript-2.9.html">
+            
+                    
+                    TypeScript 2.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../breaking-changes/typescript-2.8.html">
+            <a href="../breaking-changes/typescript-2.8.html">
+            
+                    
+                    TypeScript 2.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../breaking-changes/typescript-2.7.html">
+            <a href="../breaking-changes/typescript-2.7.html">
+            
+                    
+                    TypeScript 2.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../breaking-changes/typescript-2.6.html">
+            <a href="../breaking-changes/typescript-2.6.html">
+            
+                    
+                    TypeScript 2.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../breaking-changes/typescript-2.4.html">
+            <a href="../breaking-changes/typescript-2.4.html">
+            
+                    
+                    TypeScript 2.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../breaking-changes/typescript-2.3.html">
+            <a href="../breaking-changes/typescript-2.3.html">
+            
+                    
+                    TypeScript 2.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../breaking-changes/typescript-2.2.html">
+            <a href="../breaking-changes/typescript-2.2.html">
+            
+                    
+                    TypeScript 2.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../breaking-changes/typescript-2.1.html">
+            <a href="../breaking-changes/typescript-2.1.html">
+            
+                    
+                    TypeScript 2.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../breaking-changes/typescript-2.0.html">
+            <a href="../breaking-changes/typescript-2.0.html">
+            
+                    
+                    TypeScript 2.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="../breaking-changes/typescript-1.8.html">
+            <a href="../breaking-changes/typescript-1.8.html">
+            
+                    
+                    TypeScript 1.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="../breaking-changes/typescript-1.7.html">
+            <a href="../breaking-changes/typescript-1.7.html">
+            
+                    
+                    TypeScript 1.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="../breaking-changes/typescript-1.6.html">
+            <a href="../breaking-changes/typescript-1.6.html">
+            
+                    
+                    TypeScript 1.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.19" data-path="../breaking-changes/typescript-1.5.html">
+            <a href="../breaking-changes/typescript-1.5.html">
+            
+                    
+                    TypeScript 1.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.20" data-path="../breaking-changes/typescript-1.4.html">
+            <a href="../breaking-changes/typescript-1.4.html">
+            
+                    
+                    TypeScript 1.4
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://ob.comptechs.cn" target="_blank" class="gitbook-link"><strong>开源图书(OpenBooks)</strong></a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"如何书写声明文件","level":"1.5","depth":1,"next":{"title":"介绍","level":"1.5.1","depth":2,"path":"introduction/introduction.md","ref":"introduction/introduction.md","articles":[]},"previous":{"title":"实用工具类型","level":"1.4.23","depth":2,"path":"handbook/utility-types.md","ref":"handbook/utility-types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-treeview","theme-vmlite@git+https://github.com/vmlite/gitbook-plugin-theme-vmlite.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"collapsed":false,"copyright":"Copyright © zhongsp","minHeaderCount":"1","minHeaderDeep":"1","style":"markdown"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-vmlite":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Patrick Zhong","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TypeScript Handbook","language":"zh-hans","gitbook":">3.0.0","description":"Translation of official TypeScript Handbook"},"file":{"path":"introduction/README.md","mtime":"2020-10-13T11:54:27.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-13T11:55:04.268Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/gitbook.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/theme.js"></script>
+    
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152683495-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-152683495-1');
+        
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?643206c7810a8672f06c2affb5f8506d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+    </body>
+</html>
+

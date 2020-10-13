@@ -1,0 +1,1857 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>TypeScript 2.8 - TypeScript Handbook - 开源图书(OpenBooks)</title>
+        
+        <meta name="description" content="">
+        <meta name="author" content="Patrick Zhong">
+        
+        <script data-ad-client="ca-pub-9312750344484857" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/style.css">
+
+    
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/images/favicon.ico" type="image/x-icon">
+
+    <link rel="next" href="typescript-2.7.html" />
+    <link rel="prev" href="typescript-2.9.html" />
+
+    </head>
+    <body>
+        
+<div class="book">  
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+	<a href="/" class="btn pull-left" aria-label="开源图书(OpenBooks)"><i class="fa fa-home"></i></a>
+    
+
+    <!-- Title -->
+    <h1><i class="fa fa-circle-o-notch fa-spin"></i><a href=".." >TypeScript 2.8</a></h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-9312750344484857"
+                                     data-ad-slot="2669241897"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="true"></ins>
+                                <script>
+                                     (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                <section class="normal markdown-section">
+                                
+                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; zhongsp all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
+<li><div><a href="#typescript-28">TypeScript 2.8</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;">&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li> 
+<ul>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;">&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x7C7B;&#x578B;&#x63A8;&#x65AD;">&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x7C7B;&#x578B;&#x63A8;&#x65AD;</a><i></i></div></li>
+<li><div><a href="#&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;">&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#example">Example</a><i></i></div></li>
+</ul></li>
+</ul></li>
+<li><div><a href="#&#x6539;&#x8FDB;&#x5BF9;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x4FEE;&#x9970;&#x7B26;&#x7684;&#x63A7;&#x5236;">&#x6539;&#x8FDB;&#x5BF9;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x4FEE;&#x9970;&#x7B26;&#x7684;&#x63A7;&#x5236;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li> 
+<ul>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+</ul></li>
+</ul></li>
+<li><div><a href="#&#x6539;&#x8FDB;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#x4E0A;&#x7684;keyof">&#x6539;&#x8FDB;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#x4E0A;&#x7684;keyof</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li> 
+<ul>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+</ul></li>
+</ul></li>
+<li><div><a href="#&#x66F4;&#x597D;&#x7684;&#x5904;&#x7406;js&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x6A21;&#x5F0F;">&#x66F4;&#x597D;&#x7684;&#x5904;&#x7406;.js&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x6A21;&#x5F0F;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x505A;&#x4E3A;&#x547D;&#x540D;&#x7A7A;&#x95F4;">&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x505A;&#x4E3A;&#x547D;&#x540D;&#x7A7A;&#x95F4;</a><i></i></div></li>
+<li><div><a href="#&#x9ED8;&#x8BA4;&#x58F0;&#x660E;">&#x9ED8;&#x8BA4;&#x58F0;&#x660E;</a><i></i></div></li>
+<li><div><a href="#&#x539F;&#x578B;&#x8D4B;&#x503C;">&#x539F;&#x578B;&#x8D4B;&#x503C;</a><i></i></div></li>
+<li><div><a href="#&#x5D4C;&#x5957;&#x4E0E;&#x5408;&#x5E76;&#x58F0;&#x660E;">&#x5D4C;&#x5957;&#x4E0E;&#x5408;&#x5E76;&#x58F0;&#x660E;</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#&#x5404;&#x6587;&#x4EF6;&#x7684;jsx&#x5DE5;&#x5382;">&#x5404;&#x6587;&#x4EF6;&#x7684;JSX&#x5DE5;&#x5382;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li> 
+<ul>
+<li><div><a href="#&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</a><i></i></div></li>
+</ul></li>
+</ul></li>
+<li><div><a href="#&#x672C;&#x5730;&#x8303;&#x56F4;&#x7684;jsx&#x547D;&#x540D;&#x7A7A;&#x95F4;">&#x672C;&#x5730;&#x8303;&#x56F4;&#x7684;JSX&#x547D;&#x540D;&#x7A7A;&#x95F4;</a><i></i></div></li>
+<li><div><a href="#&#x65B0;&#x7684;--emitdeclarationsonly">&#x65B0;&#x7684;--emitDeclarationsOnly</a><i></i></div></li>
+</ul></li>
+</ul>
+</div>
+
+<h1 id="typescript-28">TypeScript 2.8</h1>
+<h2 id="&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;">&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;</h2>
+<p>TypeScript 2.8&#x5F15;&#x5165;&#x4E86;<em>&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;</em>&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x8868;&#x793A;&#x975E;&#x7EDF;&#x4E00;&#x7684;&#x7C7B;&#x578B;&#x3002; &#x6709;&#x6761;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x4F1A;&#x4EE5;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x5173;&#x7CFB;&#x68C0;&#x6D4B;&#xFF0C;&#x4ECE;&#x800C;&#x5728;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x4E2D;&#x9009;&#x62E9;&#x5176;&#x4E00;&#xFF1A;</p>
+<pre><code class="lang-typescript">T extends U ? X : Y
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x7C7B;&#x578B;&#x610F;&#x601D;&#x662F;&#xFF0C;&#x82E5;<code>T</code>&#x80FD;&#x591F;&#x8D4B;&#x503C;&#x7ED9;<code>U</code>&#xFF0C;&#x90A3;&#x4E48;&#x7C7B;&#x578B;&#x662F;<code>X</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A;<code>Y</code>&#x3002;</p>
+<p>&#x6709;&#x6761;&#x4EF6;&#x7684;&#x7C7B;&#x578B;<code>T extends U ? X : Y</code>&#x6216;&#x8005;<em>&#x89E3;&#x6790;</em>&#x4E3A;<code>X</code>&#xFF0C;&#x6216;&#x8005;<em>&#x89E3;&#x6790;</em>&#x4E3A;<code>Y</code>&#xFF0C;&#x518D;&#x6216;&#x8005;<em>&#x5EF6;&#x8FDF;</em>&#x89E3;&#x6790;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x80FD;&#x4F9D;&#x8D56;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x3002; &#x662F;&#x5426;&#x76F4;&#x63A5;&#x89E3;&#x6790;&#x6216;&#x63A8;&#x8FDF;&#x53D6;&#x51B3;&#x4E8E;&#xFF1A;</p>
+<ul>
+<li>&#x9996;&#x5148;&#xFF0C;&#x4EE4;<code>T&apos;</code>&#x548C;<code>U&apos;</code>&#x5206;&#x522B;&#x4E3A;<code>T</code>&#x548C;<code>U</code>&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x5C06;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x66FF;&#x6362;&#x4E3A;<code>any</code>&#xFF0C;&#x5982;&#x679C;<code>T&apos;</code>&#x4E0D;&#x80FD;&#x8D4B;&#x503C;&#x7ED9;<code>U&apos;</code>&#xFF0C;&#x5219;&#x5C06;&#x6709;&#x6761;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x89E3;&#x6790;&#x6210;<code>Y</code>&#x3002;&#x76F4;&#x89C2;&#x4E0A;&#x8BB2;&#xFF0C;&#x5982;&#x679C;&#x6700;&#x5BBD;&#x6CDB;&#x7684;<code>T</code>&#x7684;&#x5B9E;&#x4F8B;&#x4E0D;&#x80FD;&#x8D4B;&#x503C;&#x7ED9;&#x6700;&#x5BBD;&#x6CDB;&#x7684;<code>U</code>&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x65AD;&#x5B9A;&#x4E0D;&#x5B58;&#x5728;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x4E3A;<code>Y</code>&#x3002;</li>
+<li>&#x5176;&#x6B21;&#xFF0C;&#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x5728;<code>U</code>&#x5185;&#x7531;<code>&#x63A8;&#x65AD;</code>&#x58F0;&#x660E;&#x5F15;&#x5165;&#x7684;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#xFF0C;&#x4F9D;&#x636E;&#x4ECE;<code>T</code>&#x63A8;&#x65AD;&#x5230;<code>U</code>&#x6765;&#x6536;&#x96C6;&#x4E00;&#x7EC4;&#x5019;&#x9009;&#x7C7B;&#x578B;&#xFF08;&#x4F7F;&#x7528;&#x4E0E;&#x6CDB;&#x578B;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x63A8;&#x65AD;&#x76F8;&#x540C;&#x7684;&#x63A8;&#x65AD;&#x7B97;&#x6CD5;&#xFF09;&#x3002;&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x7684;<code>&#x63A8;&#x65AD;</code>&#x7C7B;&#x578B;&#x53D8;&#x91CF;<code>V</code>&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x662F;&#x4ECE;&#x534F;&#x53D8;&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#x63A8;&#x65AD;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x90A3;&#x4E48;<code>V</code>&#x7684;&#x7C7B;&#x578B;&#x662F;&#x90A3;&#x4E9B;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x7684;&#x8054;&#x5408;&#x3002;&#x53CD;&#x4E4B;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x662F;&#x4ECE;&#x9006;&#x53D8;&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#x63A8;&#x65AD;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x90A3;&#x4E48;<code>V</code>&#x7684;&#x7C7B;&#x578B;&#x662F;&#x90A3;&#x4E9B;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x7684;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#x3002;&#x5426;&#x5219;<code>V</code>&#x7684;&#x7C7B;&#x578B;&#x662F;<code>never</code>&#x3002;</li>
+<li>&#x7136;&#x540E;&#xFF0C;&#x4EE4;<code>T&apos;&apos;</code>&#x4E3A;<code>T</code>&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x6240;&#x6709;<code>&#x63A8;&#x65AD;</code>&#x7684;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7528;&#x4E0A;&#x4E00;&#x6B65;&#x7684;&#x63A8;&#x65AD;&#x7ED3;&#x679C;&#x66FF;&#x6362;&#xFF0C;&#x5982;&#x679C;<code>T&apos;&apos;</code><em>&#x660E;&#x663E;&#x53EF;&#x8D4B;&#x503C;</em>&#x7ED9;<code>U</code>&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x6709;&#x6761;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x89E3;&#x6790;&#x4E3A;<code>X</code>&#x3002;&#x9664;&#x53BB;&#x4E0D;&#x8003;&#x8651;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x9650;&#x5236;&#x4E4B;&#x5916;&#xFF0C;<em>&#x660E;&#x663E;&#x53EF;&#x8D4B;&#x503C;</em>&#x7684;&#x5173;&#x7CFB;&#x4E0E;&#x6B63;&#x5E38;&#x7684;&#x8D4B;&#x503C;&#x5173;&#x7CFB;&#x4E00;&#x81F4;&#x3002;&#x76F4;&#x89C2;&#x4E0A;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x660E;&#x663E;&#x53EF;&#x8D4B;&#x503C;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x591F;&#x77E5;&#x9053;&#x5B83;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x90A3;&#x4E9B;&#x7C7B;&#x578B;&#x7684;<em>&#x6240;&#x6709;</em>&#x5B9E;&#x4F8B;&#x3002;</li>
+<li>&#x5426;&#x5219;&#xFF0C;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x4F9D;&#x8D56;&#x4E8E;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#xFF0C;&#x6709;&#x6761;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x89E3;&#x6790;&#x88AB;&#x63A8;&#x8FDF;&#x8FDB;&#x884C;&#x3002;</li>
+</ul>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> TypeName&lt;T&gt; =
+    T extends <span class="hljs-built_in">string</span> ? <span class="hljs-string">&quot;string&quot;</span> :
+    T extends <span class="hljs-built_in">number</span> ? <span class="hljs-string">&quot;number&quot;</span> :
+    T extends <span class="hljs-built_in">boolean</span> ? <span class="hljs-string">&quot;boolean&quot;</span> :
+    T extends <span class="hljs-literal">undefined</span> ? <span class="hljs-string">&quot;undefined&quot;</span> :
+    T extends <span class="hljs-built_in">Function</span> ? <span class="hljs-string">&quot;function&quot;</span> :
+    <span class="hljs-string">&quot;object&quot;</span>;
+
+<span class="hljs-keyword">type</span> T0 = TypeName&lt;<span class="hljs-built_in">string</span>&gt;;  <span class="hljs-comment">// &quot;string&quot;</span>
+<span class="hljs-keyword">type</span> T1 = TypeName&lt;<span class="hljs-string">&quot;a&quot;</span>&gt;;  <span class="hljs-comment">// &quot;string&quot;</span>
+<span class="hljs-keyword">type</span> T2 = TypeName&lt;<span class="hljs-literal">true</span>&gt;;  <span class="hljs-comment">// &quot;boolean&quot;</span>
+<span class="hljs-keyword">type</span> T3 = TypeName&lt;() =&gt; <span class="hljs-built_in">void</span>&gt;;  <span class="hljs-comment">// &quot;function&quot;</span>
+<span class="hljs-keyword">type</span> T4 = TypeName&lt;<span class="hljs-built_in">string</span>[]&gt;;  <span class="hljs-comment">// &quot;object&quot;</span>
+</code></pre>
+<h3 id="&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;">&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;</h3>
+<p>&#x5982;&#x679C;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x91CC;&#x5F85;&#x68C0;&#x67E5;&#x7684;&#x7C7B;&#x578B;&#x662F;<code>naked type parameter</code>&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x201D;&#x3002; &#x5206;&#x5E03;&#x5F0F;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x5206;&#x53D1;&#x6210;&#x8054;&#x5408;&#x7C7B;&#x578B;&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;<code>T extends U ? X : Y</code>&#xFF0C;<code>T</code>&#x7684;&#x7C7B;&#x578B;&#x4E3A;<code>A | B | C</code>&#xFF0C;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;<code>(A extends U ? X : Y) | (B extends U ? X : Y) | (C extends U ? X : Y)</code>&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> T10 = TypeName&lt;<span class="hljs-built_in">string</span> | (() =&gt; <span class="hljs-built_in">void</span>)&gt;;  <span class="hljs-comment">// &quot;string&quot; | &quot;function&quot;</span>
+<span class="hljs-keyword">type</span> T12 = TypeName&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">string</span>[] | <span class="hljs-literal">undefined</span>&gt;;  <span class="hljs-comment">// &quot;string&quot; | &quot;object&quot; | &quot;undefined&quot;</span>
+<span class="hljs-keyword">type</span> T11 = TypeName&lt;<span class="hljs-built_in">string</span>[] | <span class="hljs-built_in">number</span>[]&gt;;  <span class="hljs-comment">// &quot;object&quot;</span>
+</code></pre>
+<p>&#x5728;<code>T extends U ? X : Y</code>&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x91CC;&#xFF0C;&#x5BF9;<code>T</code>&#x7684;&#x5F15;&#x7528;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x8054;&#x5408;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF08;&#x6BD4;&#x5982;&#xFF0C;<code>T</code>&#x6307;&#x5411;&#x67D0;&#x4E00;&#x5355;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x5728;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x5206;&#x5E03;&#x5230;&#x8054;&#x5408;&#x7C7B;&#x578B;&#x4E4B;&#x540E;&#xFF09;&#x3002; &#x6B64;&#x5916;&#xFF0C;&#x5728;<code>X</code>&#x5185;&#x5BF9;<code>T</code>&#x7684;&#x5F15;&#x7528;&#x6709;&#x4E00;&#x4E2A;&#x9644;&#x52A0;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7EA6;&#x675F;<code>U</code>&#xFF08;&#x4F8B;&#x5982;&#xFF0C;<code>T</code>&#x88AB;&#x5F53;&#x6210;&#x5728;<code>X</code>&#x5185;&#x53EF;&#x8D4B;&#x503C;&#x7ED9;<code>U</code>&#xFF09;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> BoxedValue&lt;T&gt; = { value: T };
+<span class="hljs-keyword">type</span> BoxedArray&lt;T&gt; = { array: T[] };
+<span class="hljs-keyword">type</span> Boxed&lt;T&gt; = T extends <span class="hljs-built_in">any</span>[] ? BoxedArray&lt;T[<span class="hljs-built_in">number</span>]&gt; : BoxedValue&lt;T&gt;;
+
+<span class="hljs-keyword">type</span> T20 = Boxed&lt;<span class="hljs-built_in">string</span>&gt;;  <span class="hljs-comment">// BoxedValue&lt;string&gt;;</span>
+<span class="hljs-keyword">type</span> T21 = Boxed&lt;<span class="hljs-built_in">number</span>[]&gt;;  <span class="hljs-comment">// BoxedArray&lt;number&gt;;</span>
+<span class="hljs-keyword">type</span> T22 = Boxed&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>[]&gt;;  <span class="hljs-comment">// BoxedValue&lt;string&gt; | BoxedArray&lt;number&gt;;</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x5728;<code>Boxed&lt;T&gt;</code>&#x7684;<code>true</code>&#x5206;&#x652F;&#x91CC;&#xFF0C;<code>T</code>&#x6709;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x7EA6;&#x675F;<code>any[]</code>&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x9002;&#x7528;&#x4E8E;<code>T[number]</code>&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x662F;&#x5982;&#x4F55;&#x5206;&#x5E03;&#x6210;&#x8054;&#x5408;&#x7C7B;&#x578B;&#x7684;&#x3002;</p>
+<p>&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x7528;&#x6765;<em>&#x8FC7;&#x6EE4;</em>&#x8054;&#x5408;&#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Diff&lt;T, U&gt; = T extends U ? never : T;  <span class="hljs-comment">// Remove types from T that are assignable to U</span>
+<span class="hljs-keyword">type</span> Filter&lt;T, U&gt; = T extends U ? T : never;  <span class="hljs-comment">// Remove types from T that are not assignable to U</span>
+
+<span class="hljs-keyword">type</span> T30 = Diff&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;d&quot;</span>, <span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;f&quot;</span>&gt;;  <span class="hljs-comment">// &quot;b&quot; | &quot;d&quot;</span>
+<span class="hljs-keyword">type</span> T31 = Filter&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;d&quot;</span>, <span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;f&quot;</span>&gt;;  <span class="hljs-comment">// &quot;a&quot; | &quot;c&quot;</span>
+<span class="hljs-keyword">type</span> T32 = Diff&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | (() =&gt; <span class="hljs-built_in">void</span>), <span class="hljs-built_in">Function</span>&gt;;  <span class="hljs-comment">// string | number</span>
+<span class="hljs-keyword">type</span> T33 = Filter&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | (() =&gt; <span class="hljs-built_in">void</span>), <span class="hljs-built_in">Function</span>&gt;;  <span class="hljs-comment">// () =&gt; void</span>
+
+<span class="hljs-keyword">type</span> NonNullable&lt;T&gt; = Diff&lt;T, <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>&gt;;  <span class="hljs-comment">// Remove null and undefined from T</span>
+
+<span class="hljs-keyword">type</span> T34 = NonNullable&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-literal">undefined</span>&gt;;  <span class="hljs-comment">// string | number</span>
+<span class="hljs-keyword">type</span> T35 = NonNullable&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">string</span>[] | <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>&gt;;  <span class="hljs-comment">// string | string[]</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f1</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">x: T, y: NonNullable&lt;T&gt;</span>) </span>{
+    x = y;  <span class="hljs-comment">// Ok</span>
+    y = x;  <span class="hljs-comment">// Error</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f2</span>&lt;<span class="hljs-title">T</span> <span class="hljs-title">extends</span> <span class="hljs-title">string</span> | <span class="hljs-title">undefined</span>&gt;(<span class="hljs-params">x: T, y: NonNullable&lt;T&gt;</span>) </span>{
+    x = y;  <span class="hljs-comment">// Ok</span>
+    y = x;  <span class="hljs-comment">// Error</span>
+    <span class="hljs-keyword">let</span> s1: <span class="hljs-built_in">string</span> = x;  <span class="hljs-comment">// Error</span>
+    <span class="hljs-keyword">let</span> s2: <span class="hljs-built_in">string</span> = y;  <span class="hljs-comment">// Ok</span>
+}
+</code></pre>
+<p>&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x4E0E;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x7ED3;&#x5408;&#x65F6;&#x7279;&#x522B;&#x6709;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> FunctionPropertyNames&lt;T&gt; = { [K <span class="hljs-keyword">in</span> keyof T]: T[K] extends <span class="hljs-built_in">Function</span> ? K : never }[keyof T];
+<span class="hljs-keyword">type</span> FunctionProperties&lt;T&gt; = Pick&lt;T, FunctionPropertyNames&lt;T&gt;&gt;;
+
+<span class="hljs-keyword">type</span> NonFunctionPropertyNames&lt;T&gt; = { [K <span class="hljs-keyword">in</span> keyof T]: T[K] extends <span class="hljs-built_in">Function</span> ? never : K }[keyof T];
+<span class="hljs-keyword">type</span> NonFunctionProperties&lt;T&gt; = Pick&lt;T, NonFunctionPropertyNames&lt;T&gt;&gt;;
+
+<span class="hljs-keyword">interface</span> Part {
+    id: <span class="hljs-built_in">number</span>;
+    name: <span class="hljs-built_in">string</span>;
+    subparts: Part[];
+    updatePart(newName: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">void</span>;
+}
+
+<span class="hljs-keyword">type</span> T40 = FunctionPropertyNames&lt;Part&gt;;  <span class="hljs-comment">// &quot;updatePart&quot;</span>
+<span class="hljs-keyword">type</span> T41 = NonFunctionPropertyNames&lt;Part&gt;;  <span class="hljs-comment">// &quot;id&quot; | &quot;name&quot; | &quot;subparts&quot;</span>
+<span class="hljs-keyword">type</span> T42 = FunctionProperties&lt;Part&gt;;  <span class="hljs-comment">// { updatePart(newName: string): void }</span>
+<span class="hljs-keyword">type</span> T43 = NonFunctionProperties&lt;Part&gt;;  <span class="hljs-comment">// { id: number, name: string, subparts: Part[] }</span>
+</code></pre>
+<p>&#x4E0E;&#x8054;&#x5408;&#x7C7B;&#x578B;&#x548C;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#x76F8;&#x4F3C;&#xFF0C;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x4E0D;&#x5141;&#x8BB8;&#x9012;&#x5F52;&#x5730;&#x5F15;&#x7528;&#x81EA;&#x5DF1;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> ElementType&lt;T&gt; = T extends <span class="hljs-built_in">any</span>[] ? ElementType&lt;T[<span class="hljs-built_in">number</span>]&gt; : T;  <span class="hljs-comment">// Error</span>
+</code></pre>
+<h3 id="&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x7C7B;&#x578B;&#x63A8;&#x65AD;">&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x7C7B;&#x578B;&#x63A8;&#x65AD;</h3>
+<p>&#x73B0;&#x5728;&#x5728;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x7684;<code>extends</code>&#x5B50;&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x5141;&#x8BB8;&#x51FA;&#x73B0;<code>infer</code>&#x58F0;&#x660E;&#xFF0C;&#x5B83;&#x4F1A;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x5F85;&#x63A8;&#x65AD;&#x7684;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x3002; &#x8FD9;&#x4E2A;&#x63A8;&#x65AD;&#x7684;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x5728;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x7684;true&#x5206;&#x652F;&#x4E2D;&#x88AB;&#x5F15;&#x7528;&#x3002; &#x5141;&#x8BB8;&#x51FA;&#x73B0;&#x591A;&#x4E2A;&#x540C;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;<code>infer</code>&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x4F1A;&#x63D0;&#x53D6;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> ReturnType&lt;T&gt; = T extends (...args: <span class="hljs-built_in">any</span>[]) =&gt; infer R ? R : <span class="hljs-built_in">any</span>;
+</code></pre>
+<p>&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x6765;&#x6784;&#x6210;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x5339;&#x914D;&#x6A21;&#x5F0F;&#xFF0C;&#x6309;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#x6C42;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Unpacked&lt;T&gt; =
+    T extends (infer U)[] ? U :
+    T extends (...args: <span class="hljs-built_in">any</span>[]) =&gt; infer U ? U :
+    T extends Promise&lt;infer U&gt; ? U :
+    T;
+
+<span class="hljs-keyword">type</span> T0 = Unpacked&lt;<span class="hljs-built_in">string</span>&gt;;  <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> T1 = Unpacked&lt;<span class="hljs-built_in">string</span>[]&gt;;  <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> T2 = Unpacked&lt;() =&gt; <span class="hljs-built_in">string</span>&gt;;  <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> T3 = Unpacked&lt;Promise&lt;<span class="hljs-built_in">string</span>&gt;&gt;;  <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> T4 = Unpacked&lt;Promise&lt;<span class="hljs-built_in">string</span>&gt;[]&gt;;  <span class="hljs-comment">// Promise&lt;string&gt;</span>
+<span class="hljs-keyword">type</span> T5 = Unpacked&lt;Unpacked&lt;Promise&lt;<span class="hljs-built_in">string</span>&gt;[]&gt;&gt;;  <span class="hljs-comment">// string</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x89E3;&#x91CA;&#x4E86;&#x5728;&#x534F;&#x53D8;&#x4F4D;&#x7F6E;&#x4E0A;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x591A;&#x4E2A;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x63A8;&#x65AD;&#x4E3A;&#x8054;&#x5408;&#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Foo&lt;T&gt; = T extends { a: infer U, b: infer U } ? U : never;
+<span class="hljs-keyword">type</span> T10 = Foo&lt;{ a: <span class="hljs-built_in">string</span>, b: <span class="hljs-built_in">string</span> }&gt;;  <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> T11 = Foo&lt;{ a: <span class="hljs-built_in">string</span>, b: <span class="hljs-built_in">number</span> }&gt;;  <span class="hljs-comment">// string | number</span>
+</code></pre>
+<p>&#x76F8;&#x4F3C;&#x5730;&#xFF0C;&#x5728;&#x6297;&#x53D8;&#x4F4D;&#x7F6E;&#x4E0A;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x7684;&#x591A;&#x4E2A;&#x5019;&#x9009;&#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x63A8;&#x65AD;&#x4E3A;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Bar&lt;T&gt; = T extends { a: (x: infer U) =&gt; <span class="hljs-built_in">void</span>, b: (x: infer U) =&gt; <span class="hljs-built_in">void</span> } ? U : never;
+<span class="hljs-keyword">type</span> T20 = Bar&lt;{ a: (x: <span class="hljs-built_in">string</span>) =&gt; <span class="hljs-built_in">void</span>, b: (x: <span class="hljs-built_in">string</span>) =&gt; <span class="hljs-built_in">void</span> }&gt;;  <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> T21 = Bar&lt;{ a: (x: <span class="hljs-built_in">string</span>) =&gt; <span class="hljs-built_in">void</span>, b: (x: <span class="hljs-built_in">number</span>) =&gt; <span class="hljs-built_in">void</span> }&gt;;  <span class="hljs-comment">// string &amp; number</span>
+</code></pre>
+<p>&#x5F53;&#x63A8;&#x65AD;&#x5177;&#x6709;&#x591A;&#x4E2A;&#x8C03;&#x7528;&#x7B7E;&#x540D;&#xFF08;&#x4F8B;&#x5982;&#x51FD;&#x6570;&#x91CD;&#x8F7D;&#x7C7B;&#x578B;&#xFF09;&#x7684;&#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x7528;<em>&#x6700;&#x540E;</em>&#x7684;&#x7B7E;&#x540D;&#xFF08;&#x5927;&#x6982;&#x662F;&#x6700;&#x81EA;&#x7531;&#x7684;&#x5305;&#x542B;&#x6240;&#x6709;&#x60C5;&#x51B5;&#x7684;&#x7B7E;&#x540D;&#xFF09;&#x8FDB;&#x884C;&#x63A8;&#x65AD;&#x3002; &#x65E0;&#x6CD5;&#x6839;&#x636E;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x5217;&#x8868;&#x6765;&#x89E3;&#x6790;&#x91CD;&#x8F7D;&#x3002;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">declare</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">x: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">number</span></span>;
+<span class="hljs-keyword">declare</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">x: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span></span>;
+<span class="hljs-keyword">declare</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">x: <span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span> | <span class="hljs-title">number</span></span>;
+<span class="hljs-keyword">type</span> T30 = ReturnType&lt;<span class="hljs-keyword">typeof</span> foo&gt;;  <span class="hljs-comment">// string | number</span>
+</code></pre>
+<p>&#x65E0;&#x6CD5;&#x5728;&#x6B63;&#x5E38;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x7684;&#x7EA6;&#x675F;&#x5B50;&#x8BED;&#x53E5;&#x4E2D;&#x4F7F;&#x7528;<code>infer</code>&#x58F0;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> ReturnType&lt;T extends (...args: <span class="hljs-built_in">any</span>[]) =&gt; infer R&gt; = R;  <span class="hljs-comment">// &#x9519;&#x8BEF;&#xFF0C;&#x4E0D;&#x652F;&#x6301;</span>
+</code></pre>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x8FBE;&#x5230;&#x540C;&#x6837;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x5728;&#x7EA6;&#x675F;&#x91CC;&#x5220;&#x6389;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#xFF0C;&#x7528;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#x66FF;&#x6362;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> AnyFunction = (...args: <span class="hljs-built_in">any</span>[]) =&gt; <span class="hljs-built_in">any</span>;
+<span class="hljs-keyword">type</span> ReturnType&lt;T extends AnyFunction&gt; = T extends (...args: <span class="hljs-built_in">any</span>[]) =&gt; infer R ? R : <span class="hljs-built_in">any</span>;
+</code></pre>
+<h3 id="&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;">&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;</h3>
+<p>TypeScript 2.8&#x5728;<code>lib.d.ts</code>&#x91CC;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x6709;&#x6761;&#x4EF6;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ul>
+<li><code>Exclude&lt;T, U&gt;</code> -- &#x4ECE;<code>T</code>&#x4E2D;&#x5254;&#x9664;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;<code>U</code>&#x7684;&#x7C7B;&#x578B;&#x3002;</li>
+<li><code>Extract&lt;T, U&gt;</code> -- &#x63D0;&#x53D6;<code>T</code>&#x4E2D;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;<code>U</code>&#x7684;&#x7C7B;&#x578B;&#x3002;</li>
+<li><code>NonNullable&lt;T&gt;</code> -- &#x4ECE;<code>T</code>&#x4E2D;&#x5254;&#x9664;<code>null</code>&#x548C;<code>undefined</code>&#x3002;</li>
+<li><code>ReturnType&lt;T&gt;</code> -- &#x83B7;&#x53D6;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x3002;</li>
+<li><code>InstanceType&lt;T&gt;</code> -- &#x83B7;&#x53D6;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#x7C7B;&#x578B;&#x3002;</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> T00 = Exclude&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;d&quot;</span>, <span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;f&quot;</span>&gt;;  <span class="hljs-comment">// &quot;b&quot; | &quot;d&quot;</span>
+<span class="hljs-keyword">type</span> T01 = Extract&lt;<span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;b&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;d&quot;</span>, <span class="hljs-string">&quot;a&quot;</span> | <span class="hljs-string">&quot;c&quot;</span> | <span class="hljs-string">&quot;f&quot;</span>&gt;;  <span class="hljs-comment">// &quot;a&quot; | &quot;c&quot;</span>
+
+<span class="hljs-keyword">type</span> T02 = Exclude&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | (() =&gt; <span class="hljs-built_in">void</span>), <span class="hljs-built_in">Function</span>&gt;;  <span class="hljs-comment">// string | number</span>
+<span class="hljs-keyword">type</span> T03 = Extract&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | (() =&gt; <span class="hljs-built_in">void</span>), <span class="hljs-built_in">Function</span>&gt;;  <span class="hljs-comment">// () =&gt; void</span>
+
+<span class="hljs-keyword">type</span> T04 = NonNullable&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-literal">undefined</span>&gt;;  <span class="hljs-comment">// string | number</span>
+<span class="hljs-keyword">type</span> T05 = NonNullable&lt;(() =&gt; <span class="hljs-built_in">string</span>) | <span class="hljs-built_in">string</span>[] | <span class="hljs-literal">null</span> | <span class="hljs-literal">undefined</span>&gt;;  <span class="hljs-comment">// (() =&gt; string) | string[]</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f1</span>(<span class="hljs-params">s: <span class="hljs-built_in">string</span></span>) </span>{
+    <span class="hljs-keyword">return</span> { a: <span class="hljs-number">1</span>, b: s };
+}
+
+<span class="hljs-keyword">class</span> C {
+    x = <span class="hljs-number">0</span>;
+    y = <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-keyword">type</span> T10 = ReturnType&lt;() =&gt; <span class="hljs-built_in">string</span>&gt;;  <span class="hljs-comment">// string</span>
+<span class="hljs-keyword">type</span> T11 = ReturnType&lt;(s: <span class="hljs-built_in">string</span>) =&gt; <span class="hljs-built_in">void</span>&gt;;  <span class="hljs-comment">// void</span>
+<span class="hljs-keyword">type</span> T12 = ReturnType&lt;(&lt;T&gt;() =&gt; T)&gt;;  <span class="hljs-comment">// {}</span>
+<span class="hljs-keyword">type</span> T13 = ReturnType&lt;(&lt;T extends U, U extends <span class="hljs-built_in">number</span>[]&gt;() =&gt; T)&gt;;  <span class="hljs-comment">// number[]</span>
+<span class="hljs-keyword">type</span> T14 = ReturnType&lt;<span class="hljs-keyword">typeof</span> f1&gt;;  <span class="hljs-comment">// { a: number, b: string }</span>
+<span class="hljs-keyword">type</span> T15 = ReturnType&lt;<span class="hljs-built_in">any</span>&gt;;  <span class="hljs-comment">// any</span>
+<span class="hljs-keyword">type</span> T16 = ReturnType&lt;never&gt;;  <span class="hljs-comment">// any</span>
+<span class="hljs-keyword">type</span> T17 = ReturnType&lt;<span class="hljs-built_in">string</span>&gt;;  <span class="hljs-comment">// Error</span>
+<span class="hljs-keyword">type</span> T18 = ReturnType&lt;<span class="hljs-built_in">Function</span>&gt;;  <span class="hljs-comment">// Error</span>
+
+<span class="hljs-keyword">type</span> T20 = InstanceType&lt;<span class="hljs-keyword">typeof</span> C&gt;;  <span class="hljs-comment">// C</span>
+<span class="hljs-keyword">type</span> T21 = InstanceType&lt;<span class="hljs-built_in">any</span>&gt;;  <span class="hljs-comment">// any</span>
+<span class="hljs-keyword">type</span> T22 = InstanceType&lt;never&gt;;  <span class="hljs-comment">// any</span>
+<span class="hljs-keyword">type</span> T23 = InstanceType&lt;<span class="hljs-built_in">string</span>&gt;;  <span class="hljs-comment">// Error</span>
+<span class="hljs-keyword">type</span> T24 = InstanceType&lt;<span class="hljs-built_in">Function</span>&gt;;  <span class="hljs-comment">// Error</span>
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;<code>Exclude</code>&#x7C7B;&#x578B;&#x662F;<a href="https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458" target="_blank">&#x5EFA;&#x8BAE;&#x7684;</a><code>Diff</code>&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>Exclude</code>&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x662F;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x7834;&#x574F;&#x5DF2;&#x7ECF;&#x5B9A;&#x4E49;&#x4E86;<code>Diff</code>&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x611F;&#x89C9;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x80FD;&#x66F4;&#x597D;&#x5730;&#x8868;&#x8FBE;&#x7C7B;&#x578B;&#x7684;&#x8BED;&#x4E49;&#x3002;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x589E;&#x52A0;<code>Omit&lt;T, K&gt;</code>&#x7C7B;&#x578B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x7528;<code>Pick&lt;T, Exclude&lt;keyof T, K&gt;&gt;</code>&#x6765;&#x8868;&#x793A;&#x3002;</p>
+</blockquote>
+<h2 id="&#x6539;&#x8FDB;&#x5BF9;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x4FEE;&#x9970;&#x7B26;&#x7684;&#x63A7;&#x5236;">&#x6539;&#x8FDB;&#x5BF9;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x4FEE;&#x9970;&#x7B26;&#x7684;&#x63A7;&#x5236;</h2>
+<p>&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x652F;&#x6301;&#x5728;&#x5C5E;&#x6027;&#x4E0A;&#x6DFB;&#x52A0;<code>readonly</code>&#x6216;<code>?</code>&#x4FEE;&#x9970;&#x7B26;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x4E0D;&#x652F;&#x6301;<em>&#x79FB;&#x9664;</em>&#x4FEE;&#x9970;&#x7B26;&#x3002; &#x8FD9;&#x5BF9;&#x4E8E;<a href="https://github.com/Microsoft/TypeScript/pull/12563" target="_blank"><em>&#x540C;&#x6001;&#x6620;&#x5C04;&#x7C7B;&#x578B;</em></a>&#x6709;&#x4E9B;&#x5F71;&#x54CD;&#xFF0C;&#x56E0;&#x4E3A;&#x540C;&#x6001;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x9ED8;&#x8BA4;&#x4FDD;&#x7559;&#x5E95;&#x5C42;&#x7C7B;&#x578B;&#x7684;&#x4FEE;&#x9970;&#x7B26;&#x3002;</p>
+<p>TypeScript 2.8&#x4E3A;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x589E;&#x52A0;&#x4E86;&#x589E;&#x52A0;&#x6216;&#x79FB;&#x9664;&#x7279;&#x5B9A;&#x4FEE;&#x9970;&#x7B26;&#x7684;&#x80FD;&#x529B;&#x3002; &#x7279;&#x522B;&#x5730;&#xFF0C;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x91CC;&#x7684;<code>readonly</code>&#x6216;<code>?</code>&#x5C5E;&#x6027;&#x4FEE;&#x9970;&#x7B26;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>+</code>&#x6216;<code>-</code>&#x524D;&#x7F00;&#xFF0C;&#x6765;&#x8868;&#x793A;&#x4FEE;&#x9970;&#x7B26;&#x662F;&#x6DFB;&#x52A0;&#x8FD8;&#x662F;&#x79FB;&#x9664;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> MutableRequired&lt;T&gt; = { -readonly [P <span class="hljs-keyword">in</span> keyof T]-?: T[P] };  <span class="hljs-comment">// &#x79FB;&#x9664;readonly&#x548C;?</span>
+<span class="hljs-keyword">type</span> ReadonlyPartial&lt;T&gt; = { +readonly [P <span class="hljs-keyword">in</span> keyof T]+?: T[P] };  <span class="hljs-comment">// &#x6DFB;&#x52A0;readonly&#x548C;?</span>
+</code></pre>
+<p>&#x4E0D;&#x5E26;<code>+</code>&#x6216;<code>-</code>&#x524D;&#x7F00;&#x7684;&#x4FEE;&#x9970;&#x7B26;&#x4E0E;&#x5E26;<code>+</code>&#x524D;&#x7F00;&#x7684;&#x4FEE;&#x9970;&#x7B26;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x56E0;&#x6B64;&#x4E0A;&#x9762;&#x7684;<code>ReadonlyPartial&lt;T&gt;</code>&#x7C7B;&#x578B;&#x4E0E;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x81F4;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> ReadonlyPartial&lt;T&gt; = { readonly [P <span class="hljs-keyword">in</span> keyof T]?: T[P] };  <span class="hljs-comment">// &#x6DFB;&#x52A0;readonly&#x548C;?</span>
+</code></pre>
+<p>&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF0C;<code>lib.d.ts</code>&#x73B0;&#x5728;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>Required&lt;T&gt;</code>&#x7C7B;&#x578B;&#x3002; &#x5B83;&#x79FB;&#x9664;&#x4E86;<code>T</code>&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x7684;<code>?</code>&#x4FEE;&#x9970;&#x7B26;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x5FC5;&#x9700;&#x7684;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Required&lt;T&gt; = { [P <span class="hljs-keyword">in</span> keyof T]-?: T[P] };
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x5728;<code>--strictNullChecks</code>&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5F53;&#x540C;&#x6001;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x79FB;&#x9664;&#x4E86;&#x5C5E;&#x6027;&#x5E95;&#x5C42;&#x7C7B;&#x578B;&#x7684;<code>?</code>&#x4FEE;&#x9970;&#x7B26;&#xFF0C;&#x5B83;&#x540C;&#x65F6;&#x4E5F;&#x79FB;&#x9664;&#x4E86;&#x90A3;&#x4E2A;&#x5C5E;&#x6027;&#x4E0A;&#x7684;<code>undefined</code>&#x7C7B;&#x578B;&#xFF1A;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> Foo = { a?: <span class="hljs-built_in">string</span> };  <span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E; { a?: string | undefined }</span>
+<span class="hljs-keyword">type</span> Bar = Required&lt;Foo&gt;;  <span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E; { a: string }</span>
+</code></pre>
+<h2 id="&#x6539;&#x8FDB;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#x4E0A;&#x7684;keyof">&#x6539;&#x8FDB;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#x4E0A;&#x7684;<code>keyof</code></h2>
+<p>TypeScript 2.8&#x4F5C;&#x7528;&#x4E8E;&#x4EA4;&#x53C9;&#x7C7B;&#x578B;&#x7684;<code>keyof</code>&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x4F5C;&#x7528;&#x4E8E;&#x4EA4;&#x53C9;&#x6210;&#x5458;&#x7684;<code>keyof</code>&#x7684;&#x8054;&#x5408;&#x3002; &#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;<code>keyof (A &amp; B)</code>&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;<code>keyof A | keyof B</code>&#x3002; &#x8FD9;&#x4E2A;&#x6539;&#x52A8;&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x89E3;&#x51B3;<code>keyof</code>&#x8868;&#x8FBE;&#x5F0F;&#x63A8;&#x65AD;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript"><span class="hljs-keyword">type</span> A = { a: <span class="hljs-built_in">string</span> };
+<span class="hljs-keyword">type</span> B = { b: <span class="hljs-built_in">string</span> };
+
+<span class="hljs-keyword">type</span> T1 = keyof (A &amp; B);  <span class="hljs-comment">// &quot;a&quot; | &quot;b&quot;</span>
+<span class="hljs-keyword">type</span> T2&lt;T&gt; = keyof (T &amp; B);  <span class="hljs-comment">// keyof T | &quot;b&quot;</span>
+<span class="hljs-keyword">type</span> T3&lt;U&gt; = keyof (A &amp; U);  <span class="hljs-comment">// &quot;a&quot; | keyof U</span>
+<span class="hljs-keyword">type</span> T4&lt;T, U&gt; = keyof (T &amp; U);  <span class="hljs-comment">// keyof T | keyof U</span>
+<span class="hljs-keyword">type</span> T5 = T2&lt;A&gt;;  <span class="hljs-comment">// &quot;a&quot; | &quot;b&quot;</span>
+<span class="hljs-keyword">type</span> T6 = T3&lt;B&gt;;  <span class="hljs-comment">// &quot;a&quot; | &quot;b&quot;</span>
+<span class="hljs-keyword">type</span> T7 = T4&lt;A, B&gt;;  <span class="hljs-comment">// &quot;a&quot; | &quot;b&quot;</span>
+</code></pre>
+<h2 id="&#x66F4;&#x597D;&#x7684;&#x5904;&#x7406;js&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x6A21;&#x5F0F;">&#x66F4;&#x597D;&#x7684;&#x5904;&#x7406;<code>.js</code>&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x6A21;&#x5F0F;</h2>
+<p>TypeScript 2.8&#x52A0;&#x5F3A;&#x4E86;&#x8BC6;&#x522B;<code>.js</code>&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x6A21;&#x5F0F;&#x3002; JavaScript&#x9876;&#x5C42;&#x7684;&#x7A7A;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x58F0;&#x660E;&#xFF0C;&#x5C31;&#x50CF;&#x51FD;&#x6570;&#x548C;&#x7C7B;&#xFF0C;&#x4F1A;&#x88AB;&#x8BC6;&#x522B;&#x6210;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x58F0;&#x660E;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> ns = {};     <span class="hljs-comment">// recognized as a declaration for a namespace `ns`</span>
+ns.constant = <span class="hljs-number">1</span>; <span class="hljs-comment">// recognized as a declaration for var `constant`</span>
+</code></pre>
+<p>&#x9876;&#x5C42;&#x7684;&#x8D4B;&#x503C;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x81F4;&#x7684;&#x884C;&#x4E3A;&#xFF1B;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<code>var</code>&#x6216;<code>const</code>&#x58F0;&#x660E;&#x4E0D;&#x662F;&#x5FC5;&#x9700;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript">app = {}; <span class="hljs-comment">// does NOT need to be `var app = {}`</span>
+app.C = <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{
+};
+app.f = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+};
+app.prop = <span class="hljs-number">1</span>;
+</code></pre>
+<h3 id="&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x505A;&#x4E3A;&#x547D;&#x540D;&#x7A7A;&#x95F4;">&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x505A;&#x4E3A;&#x547D;&#x540D;&#x7A7A;&#x95F4;</h3>
+<p>&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7C7B;&#x6216;&#x7A7A;&#x7684;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#xFF0C;&#x4E5F;&#x4F1A;&#x88AB;&#x8BC6;&#x522B;&#x4E3A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> C = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">C</span>(<span class="hljs-params">n</span>) </span>{
+    <span class="hljs-keyword">this</span>.p = n;
+  }
+  <span class="hljs-keyword">return</span> C;
+})();
+C.staticProperty = <span class="hljs-number">1</span>;
+</code></pre>
+<h3 id="&#x9ED8;&#x8BA4;&#x58F0;&#x660E;">&#x9ED8;&#x8BA4;&#x58F0;&#x660E;</h3>
+<p>&#x201C;&#x9ED8;&#x8BA4;&#x58F0;&#x660E;&#x201D;&#x5141;&#x8BB8;&#x5F15;&#x7528;&#x4E86;&#x58F0;&#x660E;&#x7684;&#x540D;&#x79F0;&#x7684;&#x521D;&#x59CB;&#x5316;&#x5668;&#x51FA;&#x73B0;&#x5728;&#x903B;&#x8F91;&#x6216;&#x7684;&#x5DE6;&#x8FB9;&#xFF1A;</p>
+<pre><code class="lang-javascript">my = <span class="hljs-built_in">window</span>.my || {};
+my.app = my.app || {};
+</code></pre>
+<h3 id="&#x539F;&#x578B;&#x8D4B;&#x503C;">&#x539F;&#x578B;&#x8D4B;&#x503C;</h3>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x76F4;&#x63A5;&#x8D4B;&#x503C;&#x7ED9;&#x539F;&#x578B;&#x5C5E;&#x6027;&#x3002;&#x72EC;&#x7ACB;&#x7684;&#x539F;&#x578B;&#x8D4B;&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> C = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">p</span>) </span>{
+  <span class="hljs-keyword">this</span>.p = p;
+};
+C.prototype = {
+  m() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.p);
+  }
+};
+C.prototype.q = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">r</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.p === r;
+};
+</code></pre>
+<h3 id="&#x5D4C;&#x5957;&#x4E0E;&#x5408;&#x5E76;&#x58F0;&#x660E;">&#x5D4C;&#x5957;&#x4E0E;&#x5408;&#x5E76;&#x58F0;&#x660E;</h3>
+<p>&#x73B0;&#x5728;&#x5D4C;&#x5957;&#x7684;&#x5C42;&#x6B21;&#x4E0D;&#x53D7;&#x9650;&#x5236;&#xFF0C;&#x5E76;&#x4E14;&#x591A;&#x6587;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x58F0;&#x660E;&#x5408;&#x5E76;&#x4E5F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;&#x4EE5;&#x524D;&#x4E0D;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> app = <span class="hljs-built_in">window</span>.app || {};
+app.C = <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{ };
+</code></pre>
+<h2 id="&#x5404;&#x6587;&#x4EF6;&#x7684;jsx&#x5DE5;&#x5382;">&#x5404;&#x6587;&#x4EF6;&#x7684;JSX&#x5DE5;&#x5382;</h2>
+<p>TypeScript 2.8&#x589E;&#x52A0;&#x4E86;&#x4F7F;&#x7528;<code>@jsx dom</code>&#x6307;&#x4EE4;&#x4E3A;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x8BBE;&#x7F6E;JSX&#x5DE5;&#x5382;&#x540D;&#x3002; JSX&#x5DE5;&#x5382;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>--jsxFactory</code>&#x7F16;&#x8BD1;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<code>React.createElement</code>&#xFF09;&#x3002;TypeScript 2.8&#x4F60;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8986;&#x5199;&#x3002;</p>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-typescript">/** @jsx dom */
+import { dom } from &quot;./renderer&quot;
+&lt;h&gt;&lt;/h&gt;
+</code></pre>
+<p>&#x751F;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> renderer_1 = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./renderer&quot;</span>);
+renderer_1.dom(<span class="hljs-string">&quot;h&quot;</span>, <span class="hljs-literal">null</span>);
+</code></pre>
+<h2 id="&#x672C;&#x5730;&#x8303;&#x56F4;&#x7684;jsx&#x547D;&#x540D;&#x7A7A;&#x95F4;">&#x672C;&#x5730;&#x8303;&#x56F4;&#x7684;JSX&#x547D;&#x540D;&#x7A7A;&#x95F4;</h2>
+<p>JSX&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x57FA;&#x4E8E;JSX&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x91CC;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6BD4;&#x5982;<code>JSX.Element</code>&#x7528;&#x4E8E;JSX&#x5143;&#x7D20;&#x7684;&#x7C7B;&#x578B;&#xFF0C;<code>JSX.IntrinsicElements</code>&#x7528;&#x4E8E;&#x5185;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#x3002; &#x5728;TypeScript 2.8&#x4E4B;&#x524D;<code>JSX</code>&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x88AB;&#x89C6;&#x4E3A;&#x5168;&#x5C40;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x5E76;&#x4E14;&#x4E00;&#x4E2A;&#x5DE5;&#x7A0B;&#x53EA;&#x5141;&#x8BB8;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x3002; TypeScript 2.8&#x5F00;&#x59CB;&#xFF0C;<code>JSX</code>&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5C06;&#x5728;<code>jsxNamespace</code>&#x4E0B;&#x9762;&#x67E5;&#x627E;&#xFF08;&#x6BD4;&#x5982;<code>React</code>&#xFF09;&#xFF0C;&#x5141;&#x8BB8;&#x5728;&#x4E00;&#x6B21;&#x7F16;&#x8BD1;&#x4E2D;&#x5B58;&#x5728;&#x591A;&#x4E2A;jsx&#x5DE5;&#x5382;&#x3002; &#x4E3A;&#x4E86;&#x5411;&#x540E;&#x517C;&#x5BB9;&#xFF0C;&#x5168;&#x5C40;&#x7684;<code>JSX</code>&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x88AB;&#x5F53;&#x505A;&#x56DE;&#x9000;&#x9009;&#x9879;&#x3002; &#x4F7F;&#x7528;&#x72EC;&#x7ACB;&#x7684;<code>@jsx</code>&#x6307;&#x4EE4;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x6709;&#x81EA;&#x5DF1;&#x7684;JSX&#x5DE5;&#x5382;&#x3002;</p>
+<h2 id="&#x65B0;&#x7684;--emitdeclarationsonly">&#x65B0;&#x7684;<code>--emitDeclarationsOnly</code></h2>
+<p><code>--emitDeclarationsOnly</code>&#x5141;&#x8BB8;<em>&#x4EC5;</em>&#x751F;&#x6210;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#xFF1B;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6807;&#x8BB0;<code>.js</code>/<code>.jsx</code>&#x8F93;&#x51FA;&#x4F1A;&#x88AB;&#x8DF3;&#x8FC7;&#x3002;&#x5F53;&#x4F7F;&#x7528;&#x5176;&#x5B83;&#x7684;&#x8F6C;&#x6362;&#x5DE5;&#x5177;&#x5982;Babel&#x5904;&#x7406;<code>.js</code>&#x8F93;&#x51FA;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6807;&#x8BB0;&#x3002;</p>
+
+                                
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-9312750344484857"
+                                     data-ad-slot="2669241897"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="true"></ins>
+                                <script>
+                                     (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="typescript-2.9.html" class="navigation navigation-prev " aria-label="上一页: TypeScript 2.9">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="typescript-2.7.html" class="navigation navigation-next " aria-label="下一页: TypeScript 2.7">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            <a href="../">
+            
+                    
+                    Introduction
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            <a href="../">
+            
+                    
+                    Introduction
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tutorials/">
+            <a href="../tutorials/">
+            
+                    
+                    快速上手
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../tutorials/typescript-in-5-minutes.html">
+            <a href="../tutorials/typescript-in-5-minutes.html">
+            
+                    
+                    5分钟了解TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../tutorials/asp.net-core.html">
+            <a href="../tutorials/asp.net-core.html">
+            
+                    
+                    ASP.NET Core
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../tutorials/asp.net-4.html">
+            <a href="../tutorials/asp.net-4.html">
+            
+                    
+                    ASP.NET 4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../tutorials/gulp.html">
+            <a href="../tutorials/gulp.html">
+            
+                    
+                    Gulp
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../tutorials/knockout.html">
+            <a href="../tutorials/knockout.html">
+            
+                    
+                    Knockout.js
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../tutorials/react-and-webpack.html">
+            <a href="../tutorials/react-and-webpack.html">
+            
+                    
+                    React与webpack
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../tutorials/react.html">
+            <a href="../tutorials/react.html">
+            
+                    
+                    React
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../tutorials/angular-2.html">
+            <a href="../tutorials/angular-2.html">
+            
+                    
+                    Angular 2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../tutorials/migrating-from-javascript.html">
+            <a href="../tutorials/migrating-from-javascript.html">
+            
+                    
+                    从JavaScript迁移到TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../handbook/">
+            <a href="../handbook/">
+            
+                    
+                    手册
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../handbook/basic-types.html">
+            <a href="../handbook/basic-types.html">
+            
+                    
+                    基础类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../handbook/variable-declarations.html">
+            <a href="../handbook/variable-declarations.html">
+            
+                    
+                    变量声明
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../handbook/interfaces.html">
+            <a href="../handbook/interfaces.html">
+            
+                    
+                    接口
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../handbook/classes.html">
+            <a href="../handbook/classes.html">
+            
+                    
+                    类
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../handbook/functions.html">
+            <a href="../handbook/functions.html">
+            
+                    
+                    函数
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../handbook/generics.html">
+            <a href="../handbook/generics.html">
+            
+                    
+                    泛型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../handbook/enums.html">
+            <a href="../handbook/enums.html">
+            
+                    
+                    枚举
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../handbook/type-inference.html">
+            <a href="../handbook/type-inference.html">
+            
+                    
+                    类型推论
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../handbook/type-compatibility.html">
+            <a href="../handbook/type-compatibility.html">
+            
+                    
+                    类型兼容性
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../handbook/advanced-types.html">
+            <a href="../handbook/advanced-types.html">
+            
+                    
+                    高级类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../handbook/symbols.html">
+            <a href="../handbook/symbols.html">
+            
+                    
+                    Symbols
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../handbook/iterators-and-generators.html">
+            <a href="../handbook/iterators-and-generators.html">
+            
+                    
+                    Iterators 和 Generators
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../handbook/modules.html">
+            <a href="../handbook/modules.html">
+            
+                    
+                    模块
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../handbook/namespaces.html">
+            <a href="../handbook/namespaces.html">
+            
+                    
+                    命名空间
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../handbook/namespaces-and-modules.html">
+            <a href="../handbook/namespaces-and-modules.html">
+            
+                    
+                    命名空间和模块
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../handbook/module-resolution.html">
+            <a href="../handbook/module-resolution.html">
+            
+                    
+                    模块解析
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../handbook/declaration-merging.html">
+            <a href="../handbook/declaration-merging.html">
+            
+                    
+                    声明合并
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../handbook/jsx.html">
+            <a href="../handbook/jsx.html">
+            
+                    
+                    JSX
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../handbook/decorators.html">
+            <a href="../handbook/decorators.html">
+            
+                    
+                    Decorators
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../handbook/mixins.html">
+            <a href="../handbook/mixins.html">
+            
+                    
+                    混入
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../handbook/triple-slash-directives.html">
+            <a href="../handbook/triple-slash-directives.html">
+            
+                    
+                    三斜线指令
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../handbook/type-checking-javascript-files.html">
+            <a href="../handbook/type-checking-javascript-files.html">
+            
+                    
+                    JavaScript文件里的类型检查
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23" data-path="../handbook/utility-types.html">
+            <a href="../handbook/utility-types.html">
+            
+                    
+                    实用工具类型
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../introduction/">
+            <a href="../introduction/">
+            
+                    
+                    如何书写声明文件
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../introduction/introduction.html">
+            <a href="../introduction/introduction.html">
+            
+                    
+                    介绍
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../introduction/library-structures.html">
+            <a href="../introduction/library-structures.html">
+            
+                    
+                    库结构
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../introduction/by-example.html">
+            <a href="../introduction/by-example.html">
+            
+                    
+                    举例
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../introduction/do-s-and-don-ts.html">
+            <a href="../introduction/do-s-and-don-ts.html">
+            
+                    
+                    最佳实践
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../introduction/deep-dive.html">
+            <a href="../introduction/deep-dive.html">
+            
+                    
+                    深入
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../introduction/templates.html">
+            <a href="../introduction/templates.html">
+            
+                    
+                    模板
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../introduction/publishing.html">
+            <a href="../introduction/publishing.html">
+            
+                    
+                    发布
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../introduction/consumption.html">
+            <a href="../introduction/consumption.html">
+            
+                    
+                    使用
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../tsconfig.json/">
+            <a href="../tsconfig.json/">
+            
+                    
+                    工程配置
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../tsconfig.json/tsconfig.json.html">
+            <a href="../tsconfig.json/tsconfig.json.html">
+            
+                    
+                    tsconfig.json
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../tsconfig.json/project-references.html">
+            <a href="../tsconfig.json/project-references.html">
+            
+                    
+                    工程引用
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../tsconfig.json/typings-for-npm-packages.html">
+            <a href="../tsconfig.json/typings-for-npm-packages.html">
+            
+                    
+                    NPM包的类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../tsconfig.json/compiler-options.html">
+            <a href="../tsconfig.json/compiler-options.html">
+            
+                    
+                    编译选项
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../tsconfig.json/configuring-watch.html">
+            <a href="../tsconfig.json/configuring-watch.html">
+            
+                    
+                    配置 Watch
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../tsconfig.json/compiler-options-in-msbuild.html">
+            <a href="../tsconfig.json/compiler-options-in-msbuild.html">
+            
+                    
+                    在MSBuild里使用编译选项
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../tsconfig.json/integrating-with-build-tools.html">
+            <a href="../tsconfig.json/integrating-with-build-tools.html">
+            
+                    
+                    与其它构建工具整合
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../tsconfig.json/nightly-builds.html">
+            <a href="../tsconfig.json/nightly-builds.html">
+            
+                    
+                    使用TypeScript的每日构建版本
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../wiki/">
+            <a href="../wiki/">
+            
+                    
+                    Wiki
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../wiki/this-in-typescript.html">
+            <a href="../wiki/this-in-typescript.html">
+            
+                    
+                    TypeScript里的this
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../wiki/coding_guidelines.html">
+            <a href="../wiki/coding_guidelines.html">
+            
+                    
+                    编码规范
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../wiki/common-errors.html">
+            <a href="../wiki/common-errors.html">
+            
+                    
+                    常见编译错误
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../wiki/typescript-editor-support.html">
+            <a href="../wiki/typescript-editor-support.html">
+            
+                    
+                    支持TypeScript的编辑器
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../wiki/using-typescript-with-asp.net-5.html">
+            <a href="../wiki/using-typescript-with-asp.net-5.html">
+            
+                    
+                    结合ASP.NET v5使用TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../wiki/architectural-overview.html">
+            <a href="../wiki/architectural-overview.html">
+            
+                    
+                    架构概述
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../wiki/roadmap.html">
+            <a href="../wiki/roadmap.html">
+            
+                    
+                    发展路线图
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            <a href="./">
+            
+                    
+                    新增功能
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="typescript-4.0.html">
+            <a href="typescript-4.0.html">
+            
+                    
+                    TypeScript 4.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="typescript-3.9.html">
+            <a href="typescript-3.9.html">
+            
+                    
+                    TypeScript 3.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="typescript-3.8.html">
+            <a href="typescript-3.8.html">
+            
+                    
+                    TypeScript 3.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="typescript-3.7.html">
+            <a href="typescript-3.7.html">
+            
+                    
+                    TypeScript 3.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="typescript-3.6.html">
+            <a href="typescript-3.6.html">
+            
+                    
+                    TypeScript 3.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="typescript-3.5.html">
+            <a href="typescript-3.5.html">
+            
+                    
+                    TypeScript 3.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="typescript-3.4.html">
+            <a href="typescript-3.4.html">
+            
+                    
+                    TypeScript 3.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="typescript-3.3.html">
+            <a href="typescript-3.3.html">
+            
+                    
+                    TypeScript 3.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="typescript-3.2.html">
+            <a href="typescript-3.2.html">
+            
+                    
+                    TypeScript 3.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="typescript-3.1.html">
+            <a href="typescript-3.1.html">
+            
+                    
+                    TypeScript 3.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="typescript-3.0.html">
+            <a href="typescript-3.0.html">
+            
+                    
+                    TypeScript 3.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="typescript-2.9.html">
+            <a href="typescript-2.9.html">
+            
+                    
+                    TypeScript 2.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.13" data-path="typescript-2.8.html">
+            <a href="typescript-2.8.html">
+            
+                    
+                    TypeScript 2.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="typescript-2.7.html">
+            <a href="typescript-2.7.html">
+            
+                    
+                    TypeScript 2.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.15" data-path="typescript-2.6.html">
+            <a href="typescript-2.6.html">
+            
+                    
+                    TypeScript 2.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.16" data-path="typescript-2.5.html">
+            <a href="typescript-2.5.html">
+            
+                    
+                    TypeScript 2.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.17" data-path="typescript-2.4.html">
+            <a href="typescript-2.4.html">
+            
+                    
+                    TypeScript 2.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.18" data-path="typescript-2.3.html">
+            <a href="typescript-2.3.html">
+            
+                    
+                    TypeScript 2.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.19" data-path="typescript-2.2.html">
+            <a href="typescript-2.2.html">
+            
+                    
+                    TypeScript 2.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.20" data-path="typescript-2.1.html">
+            <a href="typescript-2.1.html">
+            
+                    
+                    TypeScript 2.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.21" data-path="typescript-2.0.html">
+            <a href="typescript-2.0.html">
+            
+                    
+                    TypeScript 2.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.22" data-path="typescript-1.8.html">
+            <a href="typescript-1.8.html">
+            
+                    
+                    TypeScript 1.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.23" data-path="typescript-1.7.html">
+            <a href="typescript-1.7.html">
+            
+                    
+                    TypeScript 1.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.24" data-path="typescript-1.6.html">
+            <a href="typescript-1.6.html">
+            
+                    
+                    TypeScript 1.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.25" data-path="typescript-1.5.html">
+            <a href="typescript-1.5.html">
+            
+                    
+                    TypeScript 1.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.26" data-path="typescript-1.4.html">
+            <a href="typescript-1.4.html">
+            
+                    
+                    TypeScript 1.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.27" data-path="typescript-1.3.html">
+            <a href="typescript-1.3.html">
+            
+                    
+                    TypeScript 1.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.28" data-path="typescript-1.1.html">
+            <a href="typescript-1.1.html">
+            
+                    
+                    TypeScript 1.1
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../breaking-changes/">
+            <a href="../breaking-changes/">
+            
+                    
+                    Breaking Changes
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../breaking-changes/typescript-3.6.html">
+            <a href="../breaking-changes/typescript-3.6.html">
+            
+                    
+                    TypeScript 3.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../breaking-changes/typescript-3.5.html">
+            <a href="../breaking-changes/typescript-3.5.html">
+            
+                    
+                    TypeScript 3.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../breaking-changes/typescript-3.4.html">
+            <a href="../breaking-changes/typescript-3.4.html">
+            
+                    
+                    TypeScript 3.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../breaking-changes/typescript-3.2.html">
+            <a href="../breaking-changes/typescript-3.2.html">
+            
+                    
+                    TypeScript 3.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../breaking-changes/typescript-3.1.html">
+            <a href="../breaking-changes/typescript-3.1.html">
+            
+                    
+                    TypeScript 3.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../breaking-changes/typescript-3.0.html">
+            <a href="../breaking-changes/typescript-3.0.html">
+            
+                    
+                    TypeScript 3.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../breaking-changes/typescript-2.9.html">
+            <a href="../breaking-changes/typescript-2.9.html">
+            
+                    
+                    TypeScript 2.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../breaking-changes/typescript-2.8.html">
+            <a href="../breaking-changes/typescript-2.8.html">
+            
+                    
+                    TypeScript 2.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../breaking-changes/typescript-2.7.html">
+            <a href="../breaking-changes/typescript-2.7.html">
+            
+                    
+                    TypeScript 2.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../breaking-changes/typescript-2.6.html">
+            <a href="../breaking-changes/typescript-2.6.html">
+            
+                    
+                    TypeScript 2.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../breaking-changes/typescript-2.4.html">
+            <a href="../breaking-changes/typescript-2.4.html">
+            
+                    
+                    TypeScript 2.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../breaking-changes/typescript-2.3.html">
+            <a href="../breaking-changes/typescript-2.3.html">
+            
+                    
+                    TypeScript 2.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../breaking-changes/typescript-2.2.html">
+            <a href="../breaking-changes/typescript-2.2.html">
+            
+                    
+                    TypeScript 2.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../breaking-changes/typescript-2.1.html">
+            <a href="../breaking-changes/typescript-2.1.html">
+            
+                    
+                    TypeScript 2.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../breaking-changes/typescript-2.0.html">
+            <a href="../breaking-changes/typescript-2.0.html">
+            
+                    
+                    TypeScript 2.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="../breaking-changes/typescript-1.8.html">
+            <a href="../breaking-changes/typescript-1.8.html">
+            
+                    
+                    TypeScript 1.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="../breaking-changes/typescript-1.7.html">
+            <a href="../breaking-changes/typescript-1.7.html">
+            
+                    
+                    TypeScript 1.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="../breaking-changes/typescript-1.6.html">
+            <a href="../breaking-changes/typescript-1.6.html">
+            
+                    
+                    TypeScript 1.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.19" data-path="../breaking-changes/typescript-1.5.html">
+            <a href="../breaking-changes/typescript-1.5.html">
+            
+                    
+                    TypeScript 1.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.20" data-path="../breaking-changes/typescript-1.4.html">
+            <a href="../breaking-changes/typescript-1.4.html">
+            
+                    
+                    TypeScript 1.4
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://ob.comptechs.cn" target="_blank" class="gitbook-link"><strong>开源图书(OpenBooks)</strong></a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"TypeScript 2.8","level":"1.8.13","depth":2,"next":{"title":"TypeScript 2.7","level":"1.8.14","depth":2,"path":"release-notes/typescript-2.7.md","ref":"release-notes/typescript-2.7.md","articles":[]},"previous":{"title":"TypeScript 2.9","level":"1.8.12","depth":2,"path":"release-notes/typescript-2.9.md","ref":"release-notes/typescript-2.9.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-treeview","theme-vmlite@git+https://github.com/vmlite/gitbook-plugin-theme-vmlite.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"collapsed":false,"copyright":"Copyright © zhongsp","minHeaderCount":"1","minHeaderDeep":"1","style":"markdown"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-vmlite":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Patrick Zhong","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TypeScript Handbook","language":"zh-hans","gitbook":">3.0.0","description":"Translation of official TypeScript Handbook"},"file":{"path":"release-notes/typescript-2.8.md","mtime":"2020-10-13T11:54:27.544Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-13T11:55:04.268Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/gitbook.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/theme.js"></script>
+    
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152683495-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-152683495-1');
+        
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?643206c7810a8672f06c2affb5f8506d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+    </body>
+</html>
+

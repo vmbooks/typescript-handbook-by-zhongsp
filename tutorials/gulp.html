@@ -1,0 +1,1863 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Gulp - TypeScript Handbook - 开源图书(OpenBooks)</title>
+        
+        <meta name="description" content="">
+        <meta name="author" content="Patrick Zhong">
+        
+        <script data-ad-client="ca-pub-9312750344484857" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/style.css">
+
+    
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-treeview/style.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/images/favicon.ico" type="image/x-icon">
+
+    <link rel="next" href="knockout.html" />
+    <link rel="prev" href="asp.net-4.html" />
+
+    </head>
+    <body>
+        
+<div class="book">  
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+	<a href="/" class="btn pull-left" aria-label="开源图书(OpenBooks)"><i class="fa fa-home"></i></a>
+    
+
+    <!-- Title -->
+    <h1><i class="fa fa-circle-o-notch fa-spin"></i><a href=".." >Gulp</a></h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-9312750344484857"
+                                     data-ad-slot="2669241897"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="true"></ins>
+                                <script>
+                                     (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                <section class="normal markdown-section">
+                                
+                                <div class="treeview__container"><div class="treeview__container-title"><span class="treeview__main-title">Treeview</span><span class="treeview__copyright">Copyright &#xA9; zhongsp all right reserved, powered by <a href="https://github.com/aleen42" target="_blank">aleen42</a></span></div><ul>
+<li><div><a href="#gulp">Gulp</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x521B;&#x5EFA;&#x7B80;&#x5355;&#x5DE5;&#x7A0B;">&#x521B;&#x5EFA;&#x7B80;&#x5355;&#x5DE5;&#x7A0B;</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x7A0B;">&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x7A0B;</a><i></i></div></li>
+<li><div><a href="#&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x9879;">&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x9879;</a><i></i></div></li>
+<li><div><a href="#&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;">&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;</a><i></i></div></li>
+<li><div><a href="#&#x65B0;&#x5EFA;gulpfilejs&#x6587;&#x4EF6;">&#x65B0;&#x5EFA;gulpfile.js&#x6587;&#x4EF6;</a><i></i></div></li>
+<li><div><a href="#&#x6D4B;&#x8BD5;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;">&#x6D4B;&#x8BD5;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#&#x5411;&#x4EE3;&#x7801;&#x91CC;&#x6DFB;&#x52A0;&#x6A21;&#x5757;">&#x5411;&#x4EE3;&#x7801;&#x91CC;&#x6DFB;&#x52A0;&#x6A21;&#x5757;</a><i></i></div></li>
+<li><div><a href="#browserify">Browserify</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x9875;&#x9762;">&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x9875;&#x9762;</a><i></i></div></li>
+</ul></li>
+<li><div><a href="#watchify&#xFF0C;babel&#x548C;uglify">Watchify&#xFF0C;Babel&#x548C;Uglify</a><i class="level__parent level__item level__parent--opened" state="opened" onclick="var curState = this.getAttribute(&apos;state&apos;);var nextState = curState === &apos;opened&apos; ? &apos;hidden&apos; : &apos;opened&apos;;this.setAttribute(&apos;state&apos;, nextState);this.className = this.className.split(curState).join(nextState);var list = this.parentNode.nextElementSibling;if (nextState === &apos;hidden&apos;) {    list.style.display = &apos;none&apos;;} else {    list.style.display = &apos;block&apos;;}"></i></div>
+<ul>
+<li><div><a href="#watchify">Watchify</a><i></i></div></li>
+<li><div><a href="#uglify">Uglify</a><i></i></div></li>
+<li><div><a href="#babel">Babel</a><i></i></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+
+<h1 id="gulp">Gulp</h1>
+<p>&#x8FD9;&#x7BC7;&#x5FEB;&#x901F;&#x4E0A;&#x624B;&#x6307;&#x5357;&#x5C06;&#x6559;&#x4F60;&#x5982;&#x4F55;&#x4F7F;&#x7528;<a href="http://gulpjs.com" target="_blank">Gulp</a>&#x6784;&#x5EFA;TypeScript&#xFF0C;&#x548C;&#x5982;&#x4F55;&#x5728;Gulp&#x7BA1;&#x9053;&#x91CC;&#x6DFB;&#x52A0;<a href="http://browserify.org" target="_blank">Browserify</a>&#xFF0C;<a href="http://lisperator.net/uglifyjs/" target="_blank">uglify</a>&#x6216;<a href="https://github.com/substack/watchify" target="_blank">Watchify</a>&#x3002; &#x672C;&#x6307;&#x5357;&#x8FD8;&#x4F1A;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;<a href="https://github.com/babel/babelify" target="_blank">Babelify</a>&#x6765;&#x6DFB;&#x52A0;<a href="https://babeljs.io/" target="_blank">Babel</a>&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5047;&#x8BBE;&#x4F60;&#x5DF2;&#x7ECF;&#x5728;&#x4F7F;&#x7528;<a href="https://nodejs.org/" target="_blank">Node.js</a>&#x548C;<a href="https://www.npmjs.com/" target="_blank">npm</a>&#x4E86;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;&#x7B80;&#x5355;&#x5DE5;&#x7A0B;">&#x521B;&#x5EFA;&#x7B80;&#x5355;&#x5DE5;&#x7A0B;</h2>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x76EE;&#x5F55;&#x3002; &#x547D;&#x540D;&#x4E3A;<code>proj</code>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x540D;&#x5B57;&#x3002;</p>
+<pre><code class="lang-text">mkdir proj
+cd proj
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x7ED3;&#x6784;&#x5F00;&#x59CB;&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x7A0B;&#xFF1A;</p>
+<pre><code class="lang-text">proj/
+   &#x251C;&#x2500; src/
+   &#x2514;&#x2500; dist/
+</code></pre>
+<p>TypeScript&#x6587;&#x4EF6;&#x653E;&#x5728;<code>src</code>&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF0C;&#x7ECF;&#x8FC7;TypeScript&#x7F16;&#x8BD1;&#x5668;&#x7F16;&#x8BD1;&#x751F;&#x6210;&#x7684;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x653E;&#x5728;<code>dist</code>&#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x521B;&#x5EFA;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x5939;&#xFF1A;</p>
+<pre><code class="lang-text">mkdir src
+mkdir dist
+</code></pre>
+<h3 id="&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x7A0B;">&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x7A0B;</h3>
+<p>&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x628A;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x8F6C;&#x6362;&#x6210;npm&#x5305;&#xFF1A;</p>
+<pre><code class="lang-text">npm init
+</code></pre>
+<p>&#x4F60;&#x5C06;&#x770B;&#x5230;&#x6709;&#x4E00;&#x4E9B;&#x63D0;&#x793A;&#x64CD;&#x4F5C;&#x3002; &#x9664;&#x4E86;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x5916;&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x9879;&#x3002; &#x5165;&#x53E3;&#x6587;&#x4EF6;&#x4F7F;&#x7528;<code>./dist/main.js</code>&#x3002; &#x4F60;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x5728;<code>package.json</code>&#x6587;&#x4EF6;&#x91CC;&#x66F4;&#x6539;&#x751F;&#x6210;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x9879;">&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x9879;</h3>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>npm install</code>&#x547D;&#x4EE4;&#x6765;&#x5B89;&#x88C5;&#x5305;&#x3002; &#x9996;&#x5148;&#x5168;&#x5C40;&#x5B89;&#x88C5;<code>gulp-cli</code>&#xFF08;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;Unix&#x7CFB;&#x7EDF;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5728;<code>npm install</code>&#x547D;&#x4EE4;&#x4E0A;&#x4F7F;&#x7528;<code>sudo</code>&#xFF09;&#x3002;</p>
+<pre><code class="lang-text">npm install -g gulp-cli
+</code></pre>
+<p>&#x7136;&#x540E;&#x5B89;&#x88C5;<code>typescript</code>&#xFF0C;<code>gulp</code>&#x548C;<code>gulp-typescript</code>&#x5230;&#x5F00;&#x53D1;&#x4F9D;&#x8D56;&#x9879;&#x3002; <a href="https://www.npmjs.com/package/gulp-typescript" target="_blank">Gulp-typescript</a>&#x662F;TypeScript&#x7684;&#x4E00;&#x4E2A;Gulp&#x63D2;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-text">npm install --save-dev typescript gulp@4.0.0 gulp-typescript
+</code></pre>
+<h3 id="&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;">&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;</h3>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x5199;&#x4E00;&#x4E2A;Hello World&#x7A0B;&#x5E8F;&#x3002; &#x5728;<code>src</code>&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;<code>main.ts</code>&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hello</span>(<span class="hljs-params">compiler: <span class="hljs-built_in">string</span></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello from <span class="hljs-subst">${compiler}</span>`</span>);
+}
+hello(<span class="hljs-string">&apos;TypeScript&apos;</span>);
+</code></pre>
+<p>&#x5728;&#x5DE5;&#x7A0B;&#x7684;&#x6839;&#x76EE;&#x5F55;<code>proj</code>&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;<code>tsconfig.json</code>&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-javascript">{
+    <span class="hljs-string">&quot;files&quot;</span>: [
+        <span class="hljs-string">&quot;src/main.ts&quot;</span>
+    ],
+    <span class="hljs-string">&quot;compilerOptions&quot;</span>: {
+        <span class="hljs-string">&quot;noImplicitAny&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;target&quot;</span>: <span class="hljs-string">&quot;es5&quot;</span>
+    }
+}
+</code></pre>
+<h3 id="&#x65B0;&#x5EFA;gulpfilejs&#x6587;&#x4EF6;">&#x65B0;&#x5EFA;<code>gulpfile.js</code>&#x6587;&#x4EF6;</h3>
+<p>&#x5728;&#x5DE5;&#x7A0B;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;<code>gulpfile.js</code>&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
+<span class="hljs-keyword">var</span> ts = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-typescript&apos;</span>);
+<span class="hljs-keyword">var</span> tsProject = ts.createProject(<span class="hljs-string">&apos;tsconfig.json&apos;</span>);
+
+gulp.task(<span class="hljs-string">&apos;default&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> tsProject.src()
+        .pipe(tsProject())
+        .js.pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+});
+</code></pre>
+<h3 id="&#x6D4B;&#x8BD5;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;">&#x6D4B;&#x8BD5;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;</h3>
+<pre><code class="lang-text">gulp
+node dist/main.js
+</code></pre>
+<p>&#x7A0B;&#x5E8F;&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x6253;&#x5370;&#x51FA;&#x201C;Hello from TypeScript!&#x201D;&#x3002;</p>
+<h2 id="&#x5411;&#x4EE3;&#x7801;&#x91CC;&#x6DFB;&#x52A0;&#x6A21;&#x5757;">&#x5411;&#x4EE3;&#x7801;&#x91CC;&#x6DFB;&#x52A0;&#x6A21;&#x5757;</h2>
+<p>&#x5728;&#x4F7F;&#x7528;Browserify&#x524D;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x5148;&#x6784;&#x5EFA;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#x7136;&#x540E;&#x518D;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x6DF7;&#x5165;&#x7684;&#x6A21;&#x5757;&#x3002; &#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x5C06;&#x662F;&#x4F60;&#x5728;&#x771F;&#x5B9E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x4F1A;&#x7528;&#x5230;&#x7684;&#x3002;</p>
+<p>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;<code>src/greet.ts</code>&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello from <span class="hljs-subst">${name}</span>`</span>;
+}
+</code></pre>
+<p>&#x66F4;&#x6539;<code>src/main.ts</code>&#x4EE3;&#x7801;&#xFF0C;&#x4ECE;<code>greet.ts</code>&#x5BFC;&#x5165;<code>sayHello</code>&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { sayHello } from <span class="hljs-string">&apos;./greet&apos;</span>;
+
+<span class="hljs-built_in">console</span>.log(sayHello(<span class="hljs-string">&apos;TypeScript&apos;</span>));
+</code></pre>
+<p>&#x6700;&#x540E;&#xFF0C;&#x5C06;<code>src/greet.ts</code>&#x6DFB;&#x52A0;&#x5230;<code>tsconfig.json</code>&#xFF1A;</p>
+<pre><code class="lang-javascript">{
+    <span class="hljs-string">&quot;files&quot;</span>: [
+        <span class="hljs-string">&quot;src/main.ts&quot;</span>,
+        <span class="hljs-string">&quot;src/greet.ts&quot;</span>
+    ],
+    <span class="hljs-string">&quot;compilerOptions&quot;</span>: {
+        <span class="hljs-string">&quot;noImplicitAny&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;target&quot;</span>: <span class="hljs-string">&quot;es5&quot;</span>
+    }
+}
+</code></pre>
+<p>&#x786E;&#x4FDD;&#x6267;&#x884C;<code>gulp</code>&#x540E;&#x6A21;&#x5757;&#x662F;&#x80FD;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x5728;Node.js&#x4E0B;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre><code class="lang-text">gulp
+node dist/main.js
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5373;&#x4F7F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;ES2015&#x7684;&#x6A21;&#x5757;&#x8BED;&#x6CD5;&#xFF0C;TypeScript&#x8FD8;&#x662F;&#x4F1A;&#x751F;&#x6210;Node.js&#x4F7F;&#x7528;&#x7684;CommonJS&#x6A21;&#x5757;&#x3002; &#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x4E2A;&#x6559;&#x7A0B;&#x91CC;&#x4F1A;&#x4E00;&#x76F4;&#x4F7F;&#x7528;CommonJS&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;<code>module</code>&#x9009;&#x9879;&#x6765;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x884C;&#x4E3A;&#x3002;</p>
+<h2 id="browserify">Browserify</h2>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x628A;&#x8FD9;&#x4E2A;&#x5DE5;&#x7A0B;&#x7531;Node.js&#x73AF;&#x5883;&#x79FB;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#x91CC;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x628A;&#x6240;&#x6709;&#x6A21;&#x5757;&#x6346;&#x7ED1;&#x6210;&#x4E00;&#x4E2A;JavaScript&#x6587;&#x4EF6;&#x3002; &#x6240;&#x5E78;&#xFF0C;&#x8FD9;&#x6B63;&#x662F;Browserify&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x3002; &#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x652F;&#x6301;Node.js&#x7684;CommonJS&#x6A21;&#x5757;&#xFF0C;&#x8FD9;&#x4E5F;&#x6B63;&#x662F;TypeScript&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x7684;&#x7C7B;&#x578B;&#x3002; &#x4E5F;&#x5C31;&#x662F;&#x8BF4;TypeScript&#x548C;Node.js&#x7684;&#x8BBE;&#x7F6E;&#x4E0D;&#x9700;&#x8981;&#x6539;&#x53D8;&#x5C31;&#x53EF;&#x4EE5;&#x79FB;&#x690D;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5B89;&#x88C5;Browserify&#xFF0C;<a href="https://www.npmjs.com/package/tsify" target="_blank">tsify</a>&#x548C;vinyl-source-stream&#x3002; tsify&#x662F;Browserify&#x7684;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x5C31;&#x50CF;gulp-typescript&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x8BBF;&#x95EE;TypeScript&#x7F16;&#x8BD1;&#x5668;&#x3002; vinyl-source-stream&#x4F1A;&#x5C06;Browserify&#x7684;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x9002;&#x914D;&#x6210;gulp&#x80FD;&#x591F;&#x89E3;&#x6790;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x5B83;&#x53EB;&#x505A;<a href="https://github.com/gulpjs/vinyl" target="_blank">vinyl</a>&#x3002;</p>
+<pre><code class="lang-text">npm install --save-dev browserify tsify vinyl-source-stream
+</code></pre>
+<h3 id="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x9875;&#x9762;">&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x9875;&#x9762;</h3>
+<p>&#x5728;<code>src</code>&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;<code>index.html</code>&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;title&gt;Hello World!&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p id=&quot;greeting&quot;&gt;Loading ...&lt;/p&gt;
+        &lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>&#x4FEE;&#x6539;<code>main.ts</code>&#x6587;&#x4EF6;&#x6765;&#x66F4;&#x65B0;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { sayHello } from <span class="hljs-string">&apos;./greet&apos;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showHello</span>(<span class="hljs-params">divName: <span class="hljs-built_in">string</span>, name: <span class="hljs-built_in">string</span></span>) </span>{
+    <span class="hljs-keyword">const</span> elt = <span class="hljs-built_in">document</span>.getElementById(divName);
+    elt.innerText = sayHello(name);
+}
+
+showHello(<span class="hljs-string">&apos;greeting&apos;</span>, <span class="hljs-string">&apos;TypeScript&apos;</span>);
+</code></pre>
+<p><code>showHello</code>&#x8C03;&#x7528;<code>sayHello</code>&#x51FD;&#x6570;&#x66F4;&#x6539;&#x9875;&#x9762;&#x4E0A;&#x6BB5;&#x843D;&#x7684;&#x6587;&#x5B57;&#x3002; &#x73B0;&#x5728;&#x4FEE;&#x6539;gulpfile&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
+<span class="hljs-keyword">var</span> browserify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;browserify&apos;</span>);
+<span class="hljs-keyword">var</span> source = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;vinyl-source-stream&apos;</span>);
+<span class="hljs-keyword">var</span> tsify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;tsify&apos;</span>);
+<span class="hljs-keyword">var</span> paths = {
+    pages: [<span class="hljs-string">&apos;src/*.html&apos;</span>]
+};
+
+gulp.task(<span class="hljs-string">&apos;copy-html&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> gulp.src(paths.pages)
+        .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+});
+
+gulp.task(<span class="hljs-string">&apos;default&apos;</span>, gulp.series(gulp.parallel(<span class="hljs-string">&apos;copy-html&apos;</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> browserify({
+        basedir: <span class="hljs-string">&apos;.&apos;</span>,
+        debug: <span class="hljs-literal">true</span>,
+        entries: [<span class="hljs-string">&apos;src/main.ts&apos;</span>],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .bundle()
+    .pipe(source(<span class="hljs-string">&apos;bundle.js&apos;</span>))
+    .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+}));
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x589E;&#x52A0;&#x4E86;<code>copy-html</code>&#x4EFB;&#x52A1;&#x5E76;&#x4E14;&#x628A;&#x5B83;&#x52A0;&#x4F5C;<code>default</code>&#x7684;&#x4F9D;&#x8D56;&#x9879;&#x3002; &#x8FD9;&#x6837;&#xFF0C;&#x5F53;<code>default</code>&#x6267;&#x884C;&#x65F6;&#xFF0C;<code>copy-html</code>&#x4F1A;&#x88AB;&#x9996;&#x5148;&#x6267;&#x884C;&#x3002; &#x6211;&#x4EEC;&#x8FD8;&#x4FEE;&#x6539;&#x4E86;<code>default</code>&#x4EFB;&#x52A1;&#xFF0C;&#x8BA9;&#x5B83;&#x4F7F;&#x7528;<code>tsify</code>&#x63D2;&#x4EF6;&#x8C03;&#x7528;Browserify&#xFF0C;&#x800C;&#x4E0D;&#x662F;<code>gulp-typescript</code>&#x3002; &#x65B9;&#x4FBF;&#x7684;&#x662F;&#xFF0C;&#x4E24;&#x8005;&#x4F20;&#x9012;&#x76F8;&#x540C;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x5230;TypeScript&#x7F16;&#x8BD1;&#x5668;&#x3002;</p>
+<p>&#x8C03;&#x7528;<code>bundle</code>&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>source</code>&#xFF08;vinyl-source-stream&#x7684;&#x522B;&#x540D;&#xFF09;&#x628A;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x4E3A;<code>bundle.js</code>&#x3002;</p>
+<p>&#x6D4B;&#x8BD5;&#x6B64;&#x9875;&#x9762;&#xFF0C;&#x8FD0;&#x884C;<code>gulp</code>&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x6253;&#x5F00;<code>dist/index.html</code>&#x3002; &#x4F60;&#x5E94;&#x8BE5;&#x80FD;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x770B;&#x5230;&#x201C;Hello from TypeScript&#x201D;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x4E3A;Broswerify&#x6307;&#x5B9A;&#x4E86;<code>debug: true</code>&#x3002; &#x8FD9;&#x4F1A;&#x8BA9;<code>tsify</code>&#x5728;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x91CC;&#x751F;&#x6210;<code>source maps</code>&#x3002; <code>source maps</code>&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x76F4;&#x63A5;&#x8C03;&#x8BD5;TypeScript&#x6E90;&#x7801;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x5408;&#x5E76;&#x540E;&#x7684;JavaScript&#x6587;&#x4EF6;&#x4E0A;&#x8C03;&#x8BD5;&#x3002; &#x4F60;&#x8981;&#x6253;&#x5F00;&#x8C03;&#x8BD5;&#x5668;&#x5E76;&#x5728;<code>main.ts</code>&#x91CC;&#x6253;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#xFF0C;&#x770B;&#x770B;<code>source maps</code>&#x662F;&#x5426;&#x80FD;&#x5DE5;&#x4F5C;&#x3002; &#x5F53;&#x4F60;&#x5237;&#x65B0;&#x9875;&#x9762;&#x65F6;&#xFF0C;&#x4EE3;&#x7801;&#x4F1A;&#x505C;&#x5728;&#x65AD;&#x70B9;&#x5904;&#xFF0C;&#x4ECE;&#x800C;&#x4F60;&#x5C31;&#x80FD;&#x591F;&#x8C03;&#x8BD5;<code>greet.ts</code>&#x3002;</p>
+<h2 id="watchify&#xFF0C;babel&#x548C;uglify">Watchify&#xFF0C;Babel&#x548C;Uglify</h2>
+<p>&#x73B0;&#x5728;&#x4EE3;&#x7801;&#x5DF2;&#x7ECF;&#x7528;Browserify&#x548C;tsify&#x6346;&#x7ED1;&#x5728;&#x4E00;&#x8D77;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Browserify&#x63D2;&#x4EF6;&#x4E3A;&#x6784;&#x5EFA;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x7279;&#x6027;&#x3002;</p>
+<ul>
+<li>Watchify&#x542F;&#x52A8;Gulp&#x5E76;&#x4FDD;&#x6301;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x5F53;&#x4F60;&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x65F6;&#x81EA;&#x52A8;&#x7F16;&#x8BD1;&#x3002; &#x5E2E;&#x4F60;&#x8FDB;&#x5165;&#x5230;&#x7F16;&#x8F91;-&#x4FDD;&#x5B58;-&#x5237;&#x65B0;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5FAA;&#x73AF;&#x4E2D;&#x3002;</li>
+<li>Babel&#x662F;&#x4E2A;&#x5341;&#x5206;&#x7075;&#x6D3B;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x5C06;ES2015&#x53CA;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x7684;&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x6210;ES5&#x548C;ES3&#x3002; &#x4F60;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x5927;&#x91CF;&#x81EA;&#x5B9A;&#x4E49;&#x7684;TypeScript&#x76EE;&#x524D;&#x4E0D;&#x652F;&#x6301;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x3002;</li>
+<li>Uglify&#x5E2E;&#x4F60;&#x538B;&#x7F29;&#x4EE3;&#x7801;&#xFF0C;&#x5C06;&#x82B1;&#x8D39;&#x66F4;&#x5C11;&#x7684;&#x65F6;&#x95F4;&#x53BB;&#x4E0B;&#x8F7D;&#x5B83;&#x4EEC;&#x3002;</li>
+</ul>
+<h3 id="watchify">Watchify</h3>
+<p>&#x6211;&#x4EEC;&#x542F;&#x52A8;Watchify&#xFF0C;&#x8BA9;&#x5B83;&#x5728;&#x540E;&#x53F0;&#x5E2E;&#x6211;&#x4EEC;&#x7F16;&#x8BD1;&#xFF1A;</p>
+<pre><code class="lang-text">npm install --save-dev watchify fancy-log
+</code></pre>
+<p>&#x4FEE;&#x6539;gulpfile&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
+<span class="hljs-keyword">var</span> browserify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;browserify&apos;</span>);
+<span class="hljs-keyword">var</span> source = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;vinyl-source-stream&apos;</span>);
+<span class="hljs-keyword">var</span> watchify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;watchify&apos;</span>);
+<span class="hljs-keyword">var</span> tsify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;tsify&apos;</span>);
+<span class="hljs-keyword">var</span> fancy_log = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fancy-log&apos;</span>);
+<span class="hljs-keyword">var</span> paths = {
+    pages: [<span class="hljs-string">&apos;src/*.html&apos;</span>]
+};
+
+<span class="hljs-keyword">var</span> watchedBrowserify = watchify(browserify({
+    basedir: <span class="hljs-string">&apos;.&apos;</span>,
+    debug: <span class="hljs-literal">true</span>,
+    entries: [<span class="hljs-string">&apos;src/main.ts&apos;</span>],
+    cache: {},
+    packageCache: {}
+}).plugin(tsify));
+
+gulp.task(<span class="hljs-string">&apos;copy-html&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> gulp.src(paths.pages)
+        .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+});
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bundle</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> watchedBrowserify
+        .bundle()
+        .on(<span class="hljs-string">&apos;error&apos;</span>, fancy_log)
+        .pipe(source(<span class="hljs-string">&apos;bundle.js&apos;</span>))
+        .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+}
+
+gulp.task(<span class="hljs-string">&apos;default&apos;</span>, gulp.series(gulp.parallel(<span class="hljs-string">&apos;copy-html&apos;</span>), bundle));
+watchedBrowserify.on(<span class="hljs-string">&apos;update&apos;</span>, bundle);
+watchedBrowserify.on(<span class="hljs-string">&apos;log&apos;</span>, fancy_log);
+</code></pre>
+<p>&#x5171;&#x6709;&#x4E09;&#x5904;&#x6539;&#x53D8;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x4F60;&#x7565;&#x5FAE;&#x91CD;&#x6784;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#x3002;</p>
+<ol>
+<li>&#x5C06;<code>browserify</code>&#x5B9E;&#x4F8B;&#x5305;&#x88F9;&#x5728;<code>watchify</code>&#x7684;&#x8C03;&#x7528;&#x91CC;&#xFF0C;&#x63A7;&#x5236;&#x751F;&#x6210;&#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+<li>&#x8C03;&#x7528;<code>watchedBrowserify.on(&apos;update&apos;, bundle);</code>&#xFF0C;&#x6BCF;&#x6B21;TypeScript&#x6587;&#x4EF6;&#x6539;&#x53D8;&#x65F6;Browserify&#x4F1A;&#x6267;&#x884C;<code>bundle</code>&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x8C03;&#x7528;<code>watchedBrowserify.on(&apos;log&apos;, fancy_log);</code>&#x5C06;&#x65E5;&#x5FD7;&#x6253;&#x5370;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x3002;</li>
+</ol>
+<p>(1)&#x548C;(2)&#x5728;&#x4E00;&#x8D77;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x8981;&#x5C06;<code>browserify</code>&#x8C03;&#x7528;&#x79FB;&#x51FA;<code>default</code>&#x4EFB;&#x52A1;&#x3002; &#x7136;&#x540E;&#x7ED9;&#x51FD;&#x6570;&#x8D77;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x56E0;&#x4E3A;Watchify&#x548C;Gulp&#x90FD;&#x8981;&#x8C03;&#x7528;&#x5B83;&#x3002; (3)&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x8C03;&#x8BD5;&#x6765;&#x8BB2;&#x5F88;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x5F53;&#x4F60;&#x6267;&#x884C;<code>gulp</code>&#xFF0C;&#x5B83;&#x4F1A;&#x542F;&#x52A8;&#x5E76;&#x4FDD;&#x6301;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x3002; &#x8BD5;&#x7740;&#x6539;&#x53D8;<code>main.ts</code>&#x6587;&#x4EF6;&#x91CC;<code>showHello</code>&#x7684;&#x4EE3;&#x7801;&#x5E76;&#x4FDD;&#x5B58;&#x3002; &#x4F60;&#x4F1A;&#x770B;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-text">proj$ gulp
+[10:34:20] Using gulpfile ~/src/proj/gulpfile.js
+[10:34:20] Starting &apos;copy-html&apos;...
+[10:34:20] Finished &apos;copy-html&apos; after 26 ms
+[10:34:20] Starting &apos;default&apos;...
+[10:34:21] 2824 bytes written (0.13 seconds)
+[10:34:21] Finished &apos;default&apos; after 1.36 s
+[10:35:22] 2261 bytes written (0.02 seconds)
+[10:35:24] 2808 bytes written (0.05 seconds)
+</code></pre>
+<h3 id="uglify">Uglify</h3>
+<p>&#x9996;&#x5148;&#x5B89;&#x88C5;Uglify&#x3002; &#x56E0;&#x4E3A;Uglify&#x662F;&#x7528;&#x4E8E;&#x6DF7;&#x6DC6;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD8;&#x8981;&#x5B89;&#x88C5;vinyl-buffer&#x548C;gulp-sourcemaps&#x6765;&#x652F;&#x6301;sourcemaps&#x3002;</p>
+<pre><code class="lang-text">npm install --save-dev gulp-uglify vinyl-buffer gulp-sourcemaps
+</code></pre>
+<p>&#x4FEE;&#x6539;gulpfile&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
+<span class="hljs-keyword">var</span> browserify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;browserify&apos;</span>);
+<span class="hljs-keyword">var</span> source = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;vinyl-source-stream&apos;</span>);
+<span class="hljs-keyword">var</span> tsify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;tsify&apos;</span>);
+<span class="hljs-keyword">var</span> uglify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-uglify&apos;</span>);
+<span class="hljs-keyword">var</span> sourcemaps = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-sourcemaps&apos;</span>);
+<span class="hljs-keyword">var</span> buffer = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;vinyl-buffer&apos;</span>);
+<span class="hljs-keyword">var</span> paths = {
+    pages: [<span class="hljs-string">&apos;src/*.html&apos;</span>]
+};
+
+gulp.task(<span class="hljs-string">&apos;copy-html&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> gulp.src(paths.pages)
+        .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+});
+
+gulp.task(<span class="hljs-string">&apos;default&apos;</span>, gulp.series(gulp.parallel(<span class="hljs-string">&apos;copy-html&apos;</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> browserify({
+        basedir: <span class="hljs-string">&apos;.&apos;</span>,
+        debug: <span class="hljs-literal">true</span>,
+        entries: [<span class="hljs-string">&apos;src/main.ts&apos;</span>],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .bundle()
+    .pipe(source(<span class="hljs-string">&apos;bundle.js&apos;</span>))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: <span class="hljs-literal">true</span>}))
+    .pipe(uglify())
+    .pipe(sourcemaps.write(<span class="hljs-string">&apos;./&apos;</span>))
+    .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+}));
+</code></pre>
+<p>&#x6CE8;&#x610F;<code>uglify</code>&#x53EA;&#x662F;&#x8C03;&#x7528;&#x4E86;&#x81EA;&#x5DF1;&#x2014;<code>buffer</code>&#x548C;<code>sourcemaps</code>&#x7684;&#x8C03;&#x7528;&#x662F;&#x7528;&#x4E8E;&#x786E;&#x4FDD;sourcemaps&#x53EF;&#x4EE5;&#x5DE5;&#x4F5C;&#x3002; &#x8FD9;&#x4E9B;&#x8C03;&#x7528;&#x8BA9;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x7684;sourcemap&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E4B;&#x524D;&#x7684;&#x5185;&#x5D4C;&#x7684;sourcemaps&#x3002; &#x4F60;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x6267;&#x884C;<code>gulp</code>&#x6765;&#x68C0;&#x67E5;<code>bundle.js</code>&#x662F;&#x5426;&#x88AB;&#x538B;&#x7F29;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-text">gulp
+cat dist/bundle.js
+</code></pre>
+<h3 id="babel">Babel</h3>
+<p>&#x9996;&#x5148;&#x5B89;&#x88C5;Babelify&#x548C;ES2015&#x7684;Babel&#x9884;&#x7F6E;&#x7A0B;&#x5E8F;&#x3002; &#x548C;Uglify&#x4E00;&#x6837;&#xFF0C;Babelify&#x4E5F;&#x4F1A;&#x6DF7;&#x6DC6;&#x4EE3;&#x7801;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E5F;&#x9700;&#x8981;vinyl-buffer&#x548C;gulp-sourcemaps&#x3002; &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;Babelify&#x53EA;&#x4F1A;&#x5904;&#x7406;&#x6269;&#x5C55;&#x540D;&#x4E3A;<code>.js</code>&#xFF0C;<code>.es</code>&#xFF0C;<code>.es6</code>&#x548C;<code>.jsx</code>&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6DFB;&#x52A0;<code>.ts</code>&#x6269;&#x5C55;&#x540D;&#x5230;Babelify&#x9009;&#x9879;&#x3002;</p>
+<pre><code class="lang-text">npm install --save-dev babelify@8 babel-core babel-preset-es2015 vinyl-buffer gulp-sourcemaps
+</code></pre>
+<p>&#x4FEE;&#x6539;gulpfile&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> gulp = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp&apos;</span>);
+<span class="hljs-keyword">var</span> browserify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;browserify&apos;</span>);
+<span class="hljs-keyword">var</span> source = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;vinyl-source-stream&apos;</span>);
+<span class="hljs-keyword">var</span> tsify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;tsify&apos;</span>);
+<span class="hljs-keyword">var</span> sourcemaps = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gulp-sourcemaps&apos;</span>);
+<span class="hljs-keyword">var</span> buffer = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;vinyl-buffer&apos;</span>);
+<span class="hljs-keyword">var</span> paths = {
+    pages: [<span class="hljs-string">&apos;src/*.html&apos;</span>]
+};
+
+gulp.task(<span class="hljs-string">&apos;copyHtml&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> gulp.src(paths.pages)
+        .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+});
+
+gulp.task(<span class="hljs-string">&apos;default&apos;</span>, gulp.series(gulp.parallel(<span class="hljs-string">&apos;copy-html&apos;</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> browserify({
+        basedir: <span class="hljs-string">&apos;.&apos;</span>,
+        debug: <span class="hljs-literal">true</span>,
+        entries: [<span class="hljs-string">&apos;src/main.ts&apos;</span>],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .transform(<span class="hljs-string">&apos;babelify&apos;</span>, {
+        presets: [<span class="hljs-string">&apos;es2015&apos;</span>],
+        extensions: [<span class="hljs-string">&apos;.ts&apos;</span>]
+    })
+    .bundle()
+    .pipe(source(<span class="hljs-string">&apos;bundle.js&apos;</span>))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: <span class="hljs-literal">true</span>}))
+    .pipe(sourcemaps.write(<span class="hljs-string">&apos;./&apos;</span>))
+    .pipe(gulp.dest(<span class="hljs-string">&apos;dist&apos;</span>));
+}));
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8BBE;&#x7F6E;TypeScript&#x76EE;&#x6807;&#x4E3A;ES2015&#x3002; Babel&#x7A0D;&#x540E;&#x4F1A;&#x4ECE;TypeScript&#x751F;&#x6210;&#x7684;ES2015&#x4EE3;&#x7801;&#x4E2D;&#x751F;&#x6210;ES5&#x3002; &#x4FEE;&#x6539;<code>tsconfig.json</code>:</p>
+<pre><code class="lang-javascript">{
+    <span class="hljs-string">&quot;files&quot;</span>: [
+        <span class="hljs-string">&quot;src/main.ts&quot;</span>
+    ],
+    <span class="hljs-string">&quot;compilerOptions&quot;</span>: {
+        <span class="hljs-string">&quot;noImplicitAny&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;target&quot;</span>: <span class="hljs-string">&quot;es2015&quot;</span>
+    }
+}
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x8FD9;&#x6837;&#x4E00;&#x6BB5;&#x7B80;&#x5355;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x8BF4;&#xFF0C;Babel&#x7684;ES5&#x8F93;&#x51FA;&#x5E94;&#x8BE5;&#x548C;TypeScript&#x7684;&#x8F93;&#x51FA;&#x76F8;&#x4F3C;&#x3002;</p>
+
+                                
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-9312750344484857"
+                                     data-ad-slot="2669241897"
+                                     data-ad-format="auto"
+                                     data-full-width-responsive="true"></ins>
+                                <script>
+                                     (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="asp.net-4.html" class="navigation navigation-prev " aria-label="上一页: ASP.NET 4">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="knockout.html" class="navigation navigation-next " aria-label="下一页: Knockout.js">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            <a href="../">
+            
+                    
+                    Introduction
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            <a href="../">
+            
+                    
+                    Introduction
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            <a href="./">
+            
+                    
+                    快速上手
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="typescript-in-5-minutes.html">
+            <a href="typescript-in-5-minutes.html">
+            
+                    
+                    5分钟了解TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="asp.net-core.html">
+            <a href="asp.net-core.html">
+            
+                    
+                    ASP.NET Core
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="asp.net-4.html">
+            <a href="asp.net-4.html">
+            
+                    
+                    ASP.NET 4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.4" data-path="gulp.html">
+            <a href="gulp.html">
+            
+                    
+                    Gulp
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="knockout.html">
+            <a href="knockout.html">
+            
+                    
+                    Knockout.js
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="react-and-webpack.html">
+            <a href="react-and-webpack.html">
+            
+                    
+                    React与webpack
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="react.html">
+            <a href="react.html">
+            
+                    
+                    React
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="angular-2.html">
+            <a href="angular-2.html">
+            
+                    
+                    Angular 2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="migrating-from-javascript.html">
+            <a href="migrating-from-javascript.html">
+            
+                    
+                    从JavaScript迁移到TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../handbook/">
+            <a href="../handbook/">
+            
+                    
+                    手册
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../handbook/basic-types.html">
+            <a href="../handbook/basic-types.html">
+            
+                    
+                    基础类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../handbook/variable-declarations.html">
+            <a href="../handbook/variable-declarations.html">
+            
+                    
+                    变量声明
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../handbook/interfaces.html">
+            <a href="../handbook/interfaces.html">
+            
+                    
+                    接口
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../handbook/classes.html">
+            <a href="../handbook/classes.html">
+            
+                    
+                    类
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../handbook/functions.html">
+            <a href="../handbook/functions.html">
+            
+                    
+                    函数
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../handbook/generics.html">
+            <a href="../handbook/generics.html">
+            
+                    
+                    泛型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../handbook/enums.html">
+            <a href="../handbook/enums.html">
+            
+                    
+                    枚举
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../handbook/type-inference.html">
+            <a href="../handbook/type-inference.html">
+            
+                    
+                    类型推论
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../handbook/type-compatibility.html">
+            <a href="../handbook/type-compatibility.html">
+            
+                    
+                    类型兼容性
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../handbook/advanced-types.html">
+            <a href="../handbook/advanced-types.html">
+            
+                    
+                    高级类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../handbook/symbols.html">
+            <a href="../handbook/symbols.html">
+            
+                    
+                    Symbols
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../handbook/iterators-and-generators.html">
+            <a href="../handbook/iterators-and-generators.html">
+            
+                    
+                    Iterators 和 Generators
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../handbook/modules.html">
+            <a href="../handbook/modules.html">
+            
+                    
+                    模块
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="../handbook/namespaces.html">
+            <a href="../handbook/namespaces.html">
+            
+                    
+                    命名空间
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="../handbook/namespaces-and-modules.html">
+            <a href="../handbook/namespaces-and-modules.html">
+            
+                    
+                    命名空间和模块
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="../handbook/module-resolution.html">
+            <a href="../handbook/module-resolution.html">
+            
+                    
+                    模块解析
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="../handbook/declaration-merging.html">
+            <a href="../handbook/declaration-merging.html">
+            
+                    
+                    声明合并
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="../handbook/jsx.html">
+            <a href="../handbook/jsx.html">
+            
+                    
+                    JSX
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="../handbook/decorators.html">
+            <a href="../handbook/decorators.html">
+            
+                    
+                    Decorators
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="../handbook/mixins.html">
+            <a href="../handbook/mixins.html">
+            
+                    
+                    混入
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="../handbook/triple-slash-directives.html">
+            <a href="../handbook/triple-slash-directives.html">
+            
+                    
+                    三斜线指令
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.22" data-path="../handbook/type-checking-javascript-files.html">
+            <a href="../handbook/type-checking-javascript-files.html">
+            
+                    
+                    JavaScript文件里的类型检查
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23" data-path="../handbook/utility-types.html">
+            <a href="../handbook/utility-types.html">
+            
+                    
+                    实用工具类型
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../introduction/">
+            <a href="../introduction/">
+            
+                    
+                    如何书写声明文件
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../introduction/introduction.html">
+            <a href="../introduction/introduction.html">
+            
+                    
+                    介绍
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../introduction/library-structures.html">
+            <a href="../introduction/library-structures.html">
+            
+                    
+                    库结构
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../introduction/by-example.html">
+            <a href="../introduction/by-example.html">
+            
+                    
+                    举例
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../introduction/do-s-and-don-ts.html">
+            <a href="../introduction/do-s-and-don-ts.html">
+            
+                    
+                    最佳实践
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../introduction/deep-dive.html">
+            <a href="../introduction/deep-dive.html">
+            
+                    
+                    深入
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../introduction/templates.html">
+            <a href="../introduction/templates.html">
+            
+                    
+                    模板
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../introduction/publishing.html">
+            <a href="../introduction/publishing.html">
+            
+                    
+                    发布
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../introduction/consumption.html">
+            <a href="../introduction/consumption.html">
+            
+                    
+                    使用
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../tsconfig.json/">
+            <a href="../tsconfig.json/">
+            
+                    
+                    工程配置
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../tsconfig.json/tsconfig.json.html">
+            <a href="../tsconfig.json/tsconfig.json.html">
+            
+                    
+                    tsconfig.json
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../tsconfig.json/project-references.html">
+            <a href="../tsconfig.json/project-references.html">
+            
+                    
+                    工程引用
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../tsconfig.json/typings-for-npm-packages.html">
+            <a href="../tsconfig.json/typings-for-npm-packages.html">
+            
+                    
+                    NPM包的类型
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../tsconfig.json/compiler-options.html">
+            <a href="../tsconfig.json/compiler-options.html">
+            
+                    
+                    编译选项
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../tsconfig.json/configuring-watch.html">
+            <a href="../tsconfig.json/configuring-watch.html">
+            
+                    
+                    配置 Watch
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../tsconfig.json/compiler-options-in-msbuild.html">
+            <a href="../tsconfig.json/compiler-options-in-msbuild.html">
+            
+                    
+                    在MSBuild里使用编译选项
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../tsconfig.json/integrating-with-build-tools.html">
+            <a href="../tsconfig.json/integrating-with-build-tools.html">
+            
+                    
+                    与其它构建工具整合
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../tsconfig.json/nightly-builds.html">
+            <a href="../tsconfig.json/nightly-builds.html">
+            
+                    
+                    使用TypeScript的每日构建版本
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../wiki/">
+            <a href="../wiki/">
+            
+                    
+                    Wiki
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../wiki/this-in-typescript.html">
+            <a href="../wiki/this-in-typescript.html">
+            
+                    
+                    TypeScript里的this
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../wiki/coding_guidelines.html">
+            <a href="../wiki/coding_guidelines.html">
+            
+                    
+                    编码规范
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../wiki/common-errors.html">
+            <a href="../wiki/common-errors.html">
+            
+                    
+                    常见编译错误
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../wiki/typescript-editor-support.html">
+            <a href="../wiki/typescript-editor-support.html">
+            
+                    
+                    支持TypeScript的编辑器
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../wiki/using-typescript-with-asp.net-5.html">
+            <a href="../wiki/using-typescript-with-asp.net-5.html">
+            
+                    
+                    结合ASP.NET v5使用TypeScript
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../wiki/architectural-overview.html">
+            <a href="../wiki/architectural-overview.html">
+            
+                    
+                    架构概述
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../wiki/roadmap.html">
+            <a href="../wiki/roadmap.html">
+            
+                    
+                    发展路线图
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../release-notes/">
+            <a href="../release-notes/">
+            
+                    
+                    新增功能
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../release-notes/typescript-4.0.html">
+            <a href="../release-notes/typescript-4.0.html">
+            
+                    
+                    TypeScript 4.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../release-notes/typescript-3.9.html">
+            <a href="../release-notes/typescript-3.9.html">
+            
+                    
+                    TypeScript 3.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../release-notes/typescript-3.8.html">
+            <a href="../release-notes/typescript-3.8.html">
+            
+                    
+                    TypeScript 3.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../release-notes/typescript-3.7.html">
+            <a href="../release-notes/typescript-3.7.html">
+            
+                    
+                    TypeScript 3.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../release-notes/typescript-3.6.html">
+            <a href="../release-notes/typescript-3.6.html">
+            
+                    
+                    TypeScript 3.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../release-notes/typescript-3.5.html">
+            <a href="../release-notes/typescript-3.5.html">
+            
+                    
+                    TypeScript 3.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../release-notes/typescript-3.4.html">
+            <a href="../release-notes/typescript-3.4.html">
+            
+                    
+                    TypeScript 3.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../release-notes/typescript-3.3.html">
+            <a href="../release-notes/typescript-3.3.html">
+            
+                    
+                    TypeScript 3.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../release-notes/typescript-3.2.html">
+            <a href="../release-notes/typescript-3.2.html">
+            
+                    
+                    TypeScript 3.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../release-notes/typescript-3.1.html">
+            <a href="../release-notes/typescript-3.1.html">
+            
+                    
+                    TypeScript 3.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../release-notes/typescript-3.0.html">
+            <a href="../release-notes/typescript-3.0.html">
+            
+                    
+                    TypeScript 3.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="../release-notes/typescript-2.9.html">
+            <a href="../release-notes/typescript-2.9.html">
+            
+                    
+                    TypeScript 2.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.13" data-path="../release-notes/typescript-2.8.html">
+            <a href="../release-notes/typescript-2.8.html">
+            
+                    
+                    TypeScript 2.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="../release-notes/typescript-2.7.html">
+            <a href="../release-notes/typescript-2.7.html">
+            
+                    
+                    TypeScript 2.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.15" data-path="../release-notes/typescript-2.6.html">
+            <a href="../release-notes/typescript-2.6.html">
+            
+                    
+                    TypeScript 2.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.16" data-path="../release-notes/typescript-2.5.html">
+            <a href="../release-notes/typescript-2.5.html">
+            
+                    
+                    TypeScript 2.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.17" data-path="../release-notes/typescript-2.4.html">
+            <a href="../release-notes/typescript-2.4.html">
+            
+                    
+                    TypeScript 2.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.18" data-path="../release-notes/typescript-2.3.html">
+            <a href="../release-notes/typescript-2.3.html">
+            
+                    
+                    TypeScript 2.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.19" data-path="../release-notes/typescript-2.2.html">
+            <a href="../release-notes/typescript-2.2.html">
+            
+                    
+                    TypeScript 2.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.20" data-path="../release-notes/typescript-2.1.html">
+            <a href="../release-notes/typescript-2.1.html">
+            
+                    
+                    TypeScript 2.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.21" data-path="../release-notes/typescript-2.0.html">
+            <a href="../release-notes/typescript-2.0.html">
+            
+                    
+                    TypeScript 2.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.22" data-path="../release-notes/typescript-1.8.html">
+            <a href="../release-notes/typescript-1.8.html">
+            
+                    
+                    TypeScript 1.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.23" data-path="../release-notes/typescript-1.7.html">
+            <a href="../release-notes/typescript-1.7.html">
+            
+                    
+                    TypeScript 1.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.24" data-path="../release-notes/typescript-1.6.html">
+            <a href="../release-notes/typescript-1.6.html">
+            
+                    
+                    TypeScript 1.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.25" data-path="../release-notes/typescript-1.5.html">
+            <a href="../release-notes/typescript-1.5.html">
+            
+                    
+                    TypeScript 1.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.26" data-path="../release-notes/typescript-1.4.html">
+            <a href="../release-notes/typescript-1.4.html">
+            
+                    
+                    TypeScript 1.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.27" data-path="../release-notes/typescript-1.3.html">
+            <a href="../release-notes/typescript-1.3.html">
+            
+                    
+                    TypeScript 1.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.28" data-path="../release-notes/typescript-1.1.html">
+            <a href="../release-notes/typescript-1.1.html">
+            
+                    
+                    TypeScript 1.1
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../breaking-changes/">
+            <a href="../breaking-changes/">
+            
+                    
+                    Breaking Changes
+            </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../breaking-changes/typescript-3.6.html">
+            <a href="../breaking-changes/typescript-3.6.html">
+            
+                    
+                    TypeScript 3.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../breaking-changes/typescript-3.5.html">
+            <a href="../breaking-changes/typescript-3.5.html">
+            
+                    
+                    TypeScript 3.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../breaking-changes/typescript-3.4.html">
+            <a href="../breaking-changes/typescript-3.4.html">
+            
+                    
+                    TypeScript 3.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../breaking-changes/typescript-3.2.html">
+            <a href="../breaking-changes/typescript-3.2.html">
+            
+                    
+                    TypeScript 3.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../breaking-changes/typescript-3.1.html">
+            <a href="../breaking-changes/typescript-3.1.html">
+            
+                    
+                    TypeScript 3.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../breaking-changes/typescript-3.0.html">
+            <a href="../breaking-changes/typescript-3.0.html">
+            
+                    
+                    TypeScript 3.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../breaking-changes/typescript-2.9.html">
+            <a href="../breaking-changes/typescript-2.9.html">
+            
+                    
+                    TypeScript 2.9
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../breaking-changes/typescript-2.8.html">
+            <a href="../breaking-changes/typescript-2.8.html">
+            
+                    
+                    TypeScript 2.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../breaking-changes/typescript-2.7.html">
+            <a href="../breaking-changes/typescript-2.7.html">
+            
+                    
+                    TypeScript 2.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../breaking-changes/typescript-2.6.html">
+            <a href="../breaking-changes/typescript-2.6.html">
+            
+                    
+                    TypeScript 2.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../breaking-changes/typescript-2.4.html">
+            <a href="../breaking-changes/typescript-2.4.html">
+            
+                    
+                    TypeScript 2.4
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../breaking-changes/typescript-2.3.html">
+            <a href="../breaking-changes/typescript-2.3.html">
+            
+                    
+                    TypeScript 2.3
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../breaking-changes/typescript-2.2.html">
+            <a href="../breaking-changes/typescript-2.2.html">
+            
+                    
+                    TypeScript 2.2
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../breaking-changes/typescript-2.1.html">
+            <a href="../breaking-changes/typescript-2.1.html">
+            
+                    
+                    TypeScript 2.1
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../breaking-changes/typescript-2.0.html">
+            <a href="../breaking-changes/typescript-2.0.html">
+            
+                    
+                    TypeScript 2.0
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="../breaking-changes/typescript-1.8.html">
+            <a href="../breaking-changes/typescript-1.8.html">
+            
+                    
+                    TypeScript 1.8
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="../breaking-changes/typescript-1.7.html">
+            <a href="../breaking-changes/typescript-1.7.html">
+            
+                    
+                    TypeScript 1.7
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="../breaking-changes/typescript-1.6.html">
+            <a href="../breaking-changes/typescript-1.6.html">
+            
+                    
+                    TypeScript 1.6
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.19" data-path="../breaking-changes/typescript-1.5.html">
+            <a href="../breaking-changes/typescript-1.5.html">
+            
+                    
+                    TypeScript 1.5
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.20" data-path="../breaking-changes/typescript-1.4.html">
+            <a href="../breaking-changes/typescript-1.4.html">
+            
+                    
+                    TypeScript 1.4
+            </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://ob.comptechs.cn" target="_blank" class="gitbook-link"><strong>开源图书(OpenBooks)</strong></a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Gulp","level":"1.3.4","depth":2,"next":{"title":"Knockout.js","level":"1.3.5","depth":2,"path":"tutorials/knockout.md","ref":"tutorials/knockout.md","articles":[]},"previous":{"title":"ASP.NET 4","level":"1.3.3","depth":2,"path":"tutorials/asp.net-4.md","ref":"tutorials/asp.net-4.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-treeview","theme-vmlite@git+https://github.com/vmlite/gitbook-plugin-theme-vmlite.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"page-treeview":{"collapsed":false,"copyright":"Copyright © zhongsp","minHeaderCount":"1","minHeaderDeep":"1","style":"markdown"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-vmlite":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Patrick Zhong","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TypeScript Handbook","language":"zh-hans","gitbook":">3.0.0","description":"Translation of official TypeScript Handbook"},"file":{"path":"tutorials/gulp.md","mtime":"2020-10-13T11:54:27.544Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-13T11:55:04.268Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/gitbook.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitbook-plugin-theme-default@1.0.7/_assets/website/theme.js"></script>
+    
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152683495-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-152683495-1');
+        
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?643206c7810a8672f06c2affb5f8506d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+    </body>
+</html>
+
